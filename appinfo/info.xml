@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<info>
+	<id>integration_docusign</id>
+	<name>DocuSign integration</name>
+	<summary>Let users sign files via DocuSign</summary>
+	<description><![CDATA[Sign files via DocuSign Service.]]></description>
+	<version>1.0.0</version>
+	<licence>agpl</licence>
+	<author>Florian Klinger</author>
+	<namespace>DocuSign</namespace>
+	<types>
+		<filesystem/>
+		<dav/>
+	</types>
+	<documentation>
+		<developer>https://github.com/nextcloud/integration_docusign</developer>
+	</documentation>
+	<category>files</category>
+	<category>workflow</category>
+	<website>https://github.com/nextcloud/integration_docusign</website>
+	<bugs>https://github.com/nextcloud/integration_docusign/issues</bugs>
+	<dependencies>
+		<nextcloud min-version="25" max-version="27"/>
+	</dependencies>
+	<settings>
+		<admin>OCA\DocuSign\Settings\Admin</admin>
+		<admin-section>OCA\DocuSign\Settings\AdminSection</admin-section>
+	</settings>
+</info>

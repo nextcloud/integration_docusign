@@ -1,0 +1,57 @@
+{
+  "name": "integration_docusign",
+  "version": "1.0.12",
+  "description": "DocuSign",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --node-env production --progress",
+    "dev": "webpack --node-env development --progress",
+    "watch": "webpack --node-env development --progress --watch",
+    "serve": "webpack --node-env development serve --progress",
+    "lint": "eslint --ext .js,.vue src",
+    "lint:fix": "eslint --ext .js,.vue src --fix",
+    "stylelint": "stylelint src/**/*.vue src/**/*.scss src/**/*.css",
+    "stylelint:fix": "stylelint src/**/*.vue src/**/*.scss src/**/*.css --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nextcloud/integration_docusign"
+  },
+  "keywords": [
+    "integration_docusign"
+  ],
+  "author": "Julien Veyssier",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/nextcloud/integration_docusign/issues"
+  },
+  "homepage": "https://github.com/nextcloud/integration_docusign",
+  "browserslist": [
+    "extends @nextcloud/browserslist-config"
+  ],
+  "engines": {
+    "node": "^20.0.0",
+    "npm": "^9.0.0"
+  },
+  "dependencies": {
+    "@nextcloud/auth": "^2.0.0",
+    "@nextcloud/axios": "^2.1.0",
+    "@nextcloud/dialogs": "^4.1.0",
+    "@nextcloud/files": "^3.0.0",
+    "@nextcloud/initial-state": "^2.0.0",
+    "@nextcloud/l10n": "^2.2.0",
+    "@nextcloud/moment": "^1.1.1",
+    "@nextcloud/router": "^2.0.0",
+    "@nextcloud/vue": "^7.0.0",
+    "@nextcloud/vue-dashboard": "^2.0.1",
+    "vue": "^2.6.14",
+    "vue-material-design-icons": "^5.1.1"
+  },
+  "devDependencies": {
+    "@nextcloud/babel-config": "^1.0.0",
+    "@nextcloud/browserslist-config": "^2.3.0",
+    "@nextcloud/eslint-config": "^8.2.1",
+    "@nextcloud/stylelint-config": "^2.3.0",
+    "@nextcloud/webpack-vue-config": "^5.5.1"
+  }
+}
