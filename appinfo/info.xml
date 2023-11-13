@@ -20,7 +20,7 @@
 	<website>https://github.com/nextcloud/integration_docusign</website>
 	<bugs>https://github.com/nextcloud/integration_docusign/issues</bugs>
 	<dependencies>
-		<nextcloud min-version="25" max-version="27"/>
+		<nextcloud min-version="28" max-version="28"/>
 	</dependencies>
 	<settings>
 		<admin>OCA\DocuSign\Settings\Admin</admin>
