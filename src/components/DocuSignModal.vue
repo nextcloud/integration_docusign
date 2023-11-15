@@ -129,7 +129,6 @@ export default {
 .docusign-modal-content {
 	padding: 16px;
 	// min-height: 400px;
-	max-width: 400px;
 	display: flex;
 	flex-direction: column;
 

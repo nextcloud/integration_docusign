@@ -121,10 +121,8 @@ class DocusignController extends Controller {
 		}
 		$signResult = $this->docusignAPIService->emailSignStandalone($fileId, $this->userId, $targetEmails, $targetUserIds);
 		if (isset($signResult['error'])) {
-			error_log("AERROR", $signResult["error"]);
 			return new DataResponse($signResult, 401);
 		} else {
-			error_log("OKIDOKI", $signResult);
 			return new DataResponse($signResult);
 		}
 	}
