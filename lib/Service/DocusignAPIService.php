@@ -23,6 +23,7 @@ use OCP\Http\Client\IClientService;
 use OCP\IConfig;
 use OCP\IL10N;
 use OCP\IUserManager;
+use DateTime;
 
 use Psr\Log\LoggerInterface;
 
@@ -247,11 +248,70 @@ class DocusignAPIService {
 		return $this->apiRequest($baseURI, $accessToken, $refreshToken, $clientID, $clientSecret, $endPoint, $enveloppe, 'POST');
 	}
 
+	private function checkTokenExpiration(): void {
+		error_log("0");
+		$tokenExpiresAt = $this->config->getAppValue(Application::APP_ID, 'docusign_token_expires_at');
+		error_log("0 -- " . $tokenExpiresAt);
+		
+		if (!is_numeric($tokenExpiresAt)) {
+			error_log("I returned because im not a numeric val" . $tokenExpiresAt);
+			return;
+		}
+		error_log("0.0");
+		$tokenExpiresAt = (int) $tokenExpiresAt;
+		error_log("0.1");
+		$nowTs = (new DateTime())->getTimestamp();
+
+		if ($nowTs >= $tokenExpiresAt) {
+			$this->logger->warning('Trying to REFRESH the DocuSign access token', ['app' => $this->appName]);
+			error_log("4 -");
+			// try to refresh the token
+			$docusignTokenUrl = Application::DOCUSIGN_TOKEN_REQUEST_URL;
+			$clientId = $this->config->getAppValue(Application::APP_ID, 'docusign_client_id');
+			$clientSecret = $this->config->getAppValue(Application::APP_ID, 'docusign_client_secret');
+			$refreshToken = $this->config->getAppValue(Application::APP_ID, 'docusign_refresh_token');
+			error_log("5");
+
+			$params = [
+				'client_id' => $clientId,
+				'client_secret' => $clientSecret,
+				'grant_type' => 'refresh_token',
+				'refresh_token' => $refreshToken,
+			];
+
+			$result = $this->requestOAuthAccessToken($docusignTokenUrl, $clientId, $clientSecret, $params, 'POST');
+			
+			error_log(json_encode($result));
+
+			error_log(json_encode($params));
+
+			if (isset($result['access_token'])) {
+				error_log("6");
+				$accessToken = $result['access_token'];
+				$this->config->setAppValue(Application::APP_ID, 'docusign_token', $accessToken);
+				// is there a new refresh token?
+				if (isset($result['refresh_token'])) {
+					error_log("7");
+					$refreshToken = $result['refresh_token'];
+					$this->config->setAppValue(Application::APP_ID, 'docusign_refresh_token', $refreshToken);
+				}
+				
+				// add the new expires at timestamp
+				if (isset($result['expires_in']) && is_numeric($result['expires_in'])) {
+					error_log("8");
+					$nowTs = (new DateTime())->getTimestamp();
+					$expiresIn = (int) $result['expires_in'];
+					$this->config->setAppValue(Application::APP_ID, 'docusign_token_expires_at', $nowTs + $result['expires_in']);
+				}
+			}
+		}
+	}
+
 	/**
 	 * @param string|null $baseUrl
 	 * @param string $accessToken
 	 * @param string $refreshToken
-	 * @param string $clientID
+	 * @param string $clientId
 	 * @param string $clientSecret
 	 * @param string $endPoint
 	 * @param array $params
@@ -260,8 +320,12 @@ class DocusignAPIService {
 	 * @throws Exception
 	 */
 	public function apiRequest(?string $baseUrl, string $accessToken, string $refreshToken,
-		string $clientID, string $clientSecret,
+		string $clientId, string $clientSecret,
 		string $endPoint = '', array $params = [], string $method = 'GET'): array {
+		
+		$this->checkTokenExpiration();
+		$accessToken = $this->config->getAppValue(Application::APP_ID, 'docusign_token');
+		error_log("and i use this one: " . $accessToken);
 		try {
 			$url = $baseUrl . $endPoint;
 			$options = [
@@ -313,38 +377,8 @@ class DocusignAPIService {
 		} catch (ServerException | ClientException $e) {
 			$response = $e->getResponse();
 			$body = (string) $response->getBody();
-			// refresh token if it's invalid and we are using oauth
-			// response can be : 'OAuth2 token is expired!', 'Invalid token!' or 'Not authorized'
-			if ($response->getStatusCode() === 401) {
-				$this->logger->warning('Trying to REFRESH the DocuSign access token', ['app' => $this->appName]);
-				// try to refresh the token
-				$docusignTokenUrl = Application::DOCUSIGN_TOKEN_REQUEST_URL;
-				$result = $this->requestOAuthAccessToken($docusignTokenUrl, $clientID, $clientSecret, [
-					'client_id' => $clientID,
-					'client_secret' => $clientSecret,
-					'grant_type' => 'refresh_token',
-					'refresh_token' => $refreshToken,
-				], 'POST');
-				if (isset($result['access_token'])) {
-					$accessToken = $result['access_token'];
-					$this->config->setAppValue(Application::APP_ID, 'docusign_token', $accessToken);
-					// is there a new refresh token?
-					if (isset($result['refresh_token'])) {
-						$refreshToken = $result['refresh_token'];
-						$this->config->setAppValue(Application::APP_ID, 'docusign_refresh_token', $refreshToken);
-					}
-					// store new expiration time
-					if (isset($result['expires_in'])) {
-						$this->config->setAppValue(Application::APP_ID, 'docusign_token_expires_in', $result['expires_in']);
-					}
-					// retry the request with new access token
-					return $this->apiRequest(
-						$baseUrl, $accessToken, $refreshToken, $clientID, $clientSecret, $endPoint, $params, $method
-					);
-				}
-			}
 			// parse response
-			$this->logger->warning('DocuSign API error : '.$e->getMessage(), ['app' => $this->appName]);
+			$this->logger->warning('DocuSign API error : '.$e->getMessage(), ['app' => Application::APP_ID]);
 			return [
 				'error' => $e->getMessage(),
 				'response' => json_decode($body, true),

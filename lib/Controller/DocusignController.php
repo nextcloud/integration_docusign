@@ -23,6 +23,7 @@ use OCP\IConfig;
 use OCP\IL10N;
 use OCP\IRequest;
 use OCP\IURLGenerator;
+use DateTime;
 
 class DocusignController extends Controller {
 	private $userId;
@@ -190,11 +191,16 @@ class DocusignController extends Controller {
 				$accessToken = $result['access_token'];
 				$this->config->setAppValue(Application::APP_ID, 'docusign_token', $accessToken);
 				$this->config->setAppValue(Application::APP_ID, 'token_type', 'oauth');
+				error_log("i stored this token: " . $accessToken);
+
 				$refreshToken = $result['refresh_token'];
 				$this->config->setAppValue(Application::APP_ID, 'docusign_refresh_token', $refreshToken);
-				if (isset($result['expires_in'])) {
-					$this->config->setAppValue(Application::APP_ID, 'docusign_token_expires_in', $result['expires_in']);
+				if (isset($result['expires_in']) && is_numeric($result['expires_in'])) {
+					$nowTs = (new DateTime())->getTimestamp();
+					$expiresIn = (int) $result['expires_in'];
+					$this->config->setAppValue(Application::APP_ID, 'docusign_token_expires_at', $nowTs + $result['expires_in']);
 				}
+
 				// get user info
 				$this->storeUserInfo($accessToken);
 				return new RedirectResponse(
