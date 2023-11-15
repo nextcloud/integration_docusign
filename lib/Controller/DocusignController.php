@@ -121,8 +121,10 @@ class DocusignController extends Controller {
 		}
 		$signResult = $this->docusignAPIService->emailSignStandalone($fileId, $this->userId, $targetEmails, $targetUserIds);
 		if (isset($signResult['error'])) {
+			error_log("AERROR", $signResult["error"]);
 			return new DataResponse($signResult, 401);
 		} else {
+			error_log("OKIDOKI", $signResult);
 			return new DataResponse($signResult);
 		}
 	}
@@ -154,6 +156,7 @@ class DocusignController extends Controller {
 				$this->config->deleteAppValue(Application::APP_ID, 'docusign_refresh_token');
 			}
 		}
+
 		if (isset($result['error'])) {
 			return new DataResponse($result, 401);
 		} else {

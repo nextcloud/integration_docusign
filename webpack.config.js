@@ -16,4 +16,9 @@ webpackConfig.entry = {
 	filesplugin: { import: path.join(__dirname, 'src', 'filesplugin.js'), filename: appId + '-filesplugin.js' },
 }
 
+webpackConfig.module.rules.push({
+	test: /\.svg$/i,
+	type: 'asset/source',
+})
+
 module.exports = webpackConfig
