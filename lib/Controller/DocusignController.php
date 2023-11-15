@@ -79,32 +79,6 @@ class DocusignController extends Controller {
 	 * @NoAdminRequired
 	 *
 	 * @param int $fileId
-	 * @param string|null $requesterUserId
-	 * @return DataResponse
-	 */
-	public function signByApprover(int $fileId, ?string $requesterUserId = null): DataResponse {
-		$token = $this->config->getAppValue(Application::APP_ID, 'docusign_token');
-		$clientID = $this->config->getAppValue(Application::APP_ID, 'docusign_client_id');
-		$clientSecret = $this->utilsService->getEncryptedAppValue('docusign_client_secret');
-		$isConnected = ($token !== '' && $clientID !== '' && $clientSecret !== '');
-		if (!$isConnected) {
-			return new DataResponse(['error' => 'DocuSign admin connected account is not configured'], 401);
-		}
-		if (!$this->utilsService->userHasAccessTo($fileId, $this->userId)) {
-			return new DataResponse(['error' => 'You don\'t have access to this file'], 401);
-		}
-		$signResult = $this->docusignAPIService->emailSignByApprover($fileId, $this->userId, $requesterUserId);
-		if (isset($signResult['error'])) {
-			return new DataResponse($signResult, 401);
-		} else {
-			return new DataResponse($signResult);
-		}
-	}
-
-	/**
-	 * @NoAdminRequired
-	 *
-	 * @param int $fileId
 	 * @param array $targetEmails
 	 * @param array $targetUserIds
 	 * @return DataResponse
@@ -191,7 +165,6 @@ class DocusignController extends Controller {
 				$accessToken = $result['access_token'];
 				$this->config->setAppValue(Application::APP_ID, 'docusign_token', $accessToken);
 				$this->config->setAppValue(Application::APP_ID, 'token_type', 'oauth');
-				error_log("i stored this token: " . $accessToken);
 
 				$refreshToken = $result['refresh_token'];
 				$this->config->setAppValue(Application::APP_ID, 'docusign_refresh_token', $refreshToken);

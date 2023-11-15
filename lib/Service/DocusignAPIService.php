@@ -249,56 +249,40 @@ class DocusignAPIService {
 	}
 
 	private function checkTokenExpiration(): void {
-		error_log("0");
 		$tokenExpiresAt = $this->config->getAppValue(Application::APP_ID, 'docusign_token_expires_at');
-		error_log("0 -- " . $tokenExpiresAt);
-		
+
 		if (!is_numeric($tokenExpiresAt)) {
-			error_log("I returned because im not a numeric val" . $tokenExpiresAt);
 			return;
 		}
-		error_log("0.0");
 		$tokenExpiresAt = (int) $tokenExpiresAt;
-		error_log("0.1");
 		$nowTs = (new DateTime())->getTimestamp();
 
 		if ($nowTs >= $tokenExpiresAt) {
 			$this->logger->warning('Trying to REFRESH the DocuSign access token', ['app' => $this->appName]);
-			error_log("4 -");
 			// try to refresh the token
 			$docusignTokenUrl = Application::DOCUSIGN_TOKEN_REQUEST_URL;
 			$clientId = $this->config->getAppValue(Application::APP_ID, 'docusign_client_id');
-			$clientSecret = $this->config->getAppValue(Application::APP_ID, 'docusign_client_secret');
+			$clientSecret = $this->utilsService->getEncryptedAppValue('docusign_client_secret');
 			$refreshToken = $this->config->getAppValue(Application::APP_ID, 'docusign_refresh_token');
-			error_log("5");
 
 			$params = [
-				'client_id' => $clientId,
-				'client_secret' => $clientSecret,
 				'grant_type' => 'refresh_token',
 				'refresh_token' => $refreshToken,
 			];
 
 			$result = $this->requestOAuthAccessToken($docusignTokenUrl, $clientId, $clientSecret, $params, 'POST');
-			
-			error_log(json_encode($result));
-
-			error_log(json_encode($params));
 
 			if (isset($result['access_token'])) {
-				error_log("6");
 				$accessToken = $result['access_token'];
 				$this->config->setAppValue(Application::APP_ID, 'docusign_token', $accessToken);
 				// is there a new refresh token?
 				if (isset($result['refresh_token'])) {
-					error_log("7");
 					$refreshToken = $result['refresh_token'];
 					$this->config->setAppValue(Application::APP_ID, 'docusign_refresh_token', $refreshToken);
 				}
-				
+
 				// add the new expires at timestamp
 				if (isset($result['expires_in']) && is_numeric($result['expires_in'])) {
-					error_log("8");
 					$nowTs = (new DateTime())->getTimestamp();
 					$expiresIn = (int) $result['expires_in'];
 					$this->config->setAppValue(Application::APP_ID, 'docusign_token_expires_at', $nowTs + $result['expires_in']);
@@ -322,10 +306,9 @@ class DocusignAPIService {
 	public function apiRequest(?string $baseUrl, string $accessToken, string $refreshToken,
 		string $clientId, string $clientSecret,
 		string $endPoint = '', array $params = [], string $method = 'GET'): array {
-		
+
 		$this->checkTokenExpiration();
 		$accessToken = $this->config->getAppValue(Application::APP_ID, 'docusign_token');
-		error_log("and i use this one: " . $accessToken);
 		try {
 			$url = $baseUrl . $endPoint;
 			$options = [
