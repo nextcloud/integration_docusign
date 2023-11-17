@@ -19,6 +19,9 @@
 	<category>workflow</category>
 	<website>https://github.com/nextcloud/integration_docusign</website>
 	<bugs>https://github.com/nextcloud/integration_docusign/issues</bugs>
+	<screenshot>https://raw.githubusercontent.com/nc-fkl/integration_docusign/main/img/screenshot_docusign_1.png</screenshot>
+	<screenshot>https://raw.githubusercontent.com/nc-fkl/integration_docusign/main/img/screenshot_docusign_2.png</screenshot>
+	<screenshot>https://raw.githubusercontent.com/nc-fkl/integration_docusign/main/img/screenshot_docusign_3.png</screenshot>
 	<dependencies>
 		<nextcloud min-version="28" max-version="28"/>
 	</dependencies>
