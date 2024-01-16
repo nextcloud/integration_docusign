@@ -24,8 +24,6 @@ use OCP\Security\ICrypto;
 use OCP\Share\IManager as IShareManager;
 use OCP\Share\IShare;
 use OCP\SystemTag\ISystemTagManager;
-use OCP\SystemTag\TagAlreadyExistsException;
-use OCP\SystemTag\TagNotFoundException;
 
 class UtilsService {
 	/**
