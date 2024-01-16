@@ -11,19 +11,19 @@
 
 namespace OCA\DocuSign\Controller;
 
+use DateTime;
 use OCA\DocuSign\AppInfo\Application;
 use OCA\DocuSign\Service\DocusignAPIService;
-use OCA\DocuSign\Service\UtilsService;
 
+use OCA\DocuSign\Service\UtilsService;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Http\RedirectResponse;
-use OCP\IConfig;
 
+use OCP\IConfig;
 use OCP\IL10N;
 use OCP\IRequest;
 use OCP\IURLGenerator;
-use DateTime;
 
 class DocusignController extends Controller {
 	private $userId;

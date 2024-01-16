@@ -11,6 +11,7 @@
 
 namespace OCA\DocuSign\Service;
 
+use DateTime;
 use Exception;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ConnectException;
@@ -23,7 +24,6 @@ use OCP\Http\Client\IClientService;
 use OCP\IConfig;
 use OCP\IL10N;
 use OCP\IUserManager;
-use DateTime;
 
 use Psr\Log\LoggerInterface;
 
