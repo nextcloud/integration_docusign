@@ -197,30 +197,4 @@ class UtilsService {
 		}
 		return false;
 	}
-
-	/**
-	 * @param string $name of the new tag
-	 * @return array
-	 */
-	public function createTag(string $name): array {
-		try {
-			$tag = $this->tagManager->createTag($name, false, false);
-			return ['id' => $tag->getId()];
-		} catch (TagAlreadyExistsException $e) {
-			return ['error' => 'Tag already exists'];
-		}
-	}
-
-	/**
-	 * @param int $id of the tag to delete
-	 * @return array
-	 */
-	public function deleteTag(int $id): array {
-		try {
-			$this->tagManager->deleteTags($id);
-			return ['success' => true];
-		} catch (TagNotFoundException $e) {
-			return ['error' => 'Tag not found'];
-		}
-	}
 }

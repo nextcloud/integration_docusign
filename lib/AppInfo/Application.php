@@ -18,11 +18,6 @@ use OCP\EventDispatcher\IEventDispatcher;
 
 use OCP\Util;
 
-/**
- * Class Application
- *
- * @package OCA\DocuSign\AppInfo
- */
 class Application extends App implements IBootstrap {
 	public const APP_ID = 'integration_docusign';
 	public const ADMIN_SETTINGS_SECTION = 'connected-accounts';
@@ -30,11 +25,6 @@ class Application extends App implements IBootstrap {
 	public const DOCUSIGN_TOKEN_REQUEST_URL = 'https://account-d.docusign.com/oauth/token';
 	public const DOCUSIGN_USER_INFO_REQUEST_URL = 'https://account-d.docusign.com/oauth/userinfo';
 
-	/**
-	 * Constructor
-	 *
-	 * @param array $urlParams
-	 */
 	public function __construct(array $urlParams = []) {
 		parent::__construct(self::APP_ID, $urlParams);
 

@@ -9,4 +9,5 @@ vendor
 js/*hot-update.*
 /js
 build
-.php-cs-fixer.cache
+.php*.cache
+/composer.lock
