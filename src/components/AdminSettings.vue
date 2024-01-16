@@ -6,7 +6,7 @@
 				{{ t('approval', 'Sign with DocuSign') }}
 			</h2>
 			<br>
-		<DocuSignSettings />
+			<DocuSignSettings />
 		</div>
 	</div>
 </template>
@@ -23,7 +23,6 @@ export default {
 
 	props: [],
 
-
 	computed: {
 	},
 
@@ -39,4 +38,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
+// nothing yet
 </style>
