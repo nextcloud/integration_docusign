@@ -11,6 +11,7 @@
 
 namespace OCA\DocuSign\Service;
 
+use DateTime;
 use Exception;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ConnectException;
@@ -23,7 +24,6 @@ use OCP\Http\Client\IClientService;
 use OCP\IConfig;
 use OCP\IL10N;
 use OCP\IUserManager;
-use DateTime;
 
 use Psr\Log\LoggerInterface;
 
@@ -285,7 +285,7 @@ class DocusignAPIService {
 				if (isset($result['expires_in']) && is_numeric($result['expires_in'])) {
 					$nowTs = (new DateTime())->getTimestamp();
 					$expiresIn = (int) $result['expires_in'];
-					$this->config->setAppValue(Application::APP_ID, 'docusign_token_expires_at', $nowTs + $result['expires_in']);
+					$this->config->setAppValue(Application::APP_ID, 'docusign_token_expires_at', (string) ($nowTs + $result['expires_in']));
 				}
 			}
 		}
