@@ -23,7 +23,7 @@
 	<screenshot>https://raw.githubusercontent.com/nc-fkl/integration_docusign/main/img/screenshot_docusign_2.png</screenshot>
 	<screenshot>https://raw.githubusercontent.com/nc-fkl/integration_docusign/main/img/screenshot_docusign_3.png</screenshot>
 	<dependencies>
-		<nextcloud min-version="28" max-version="28"/>
+		<nextcloud min-version="28" max-version="29"/>
 	</dependencies>
 	<settings>
 		<admin>OCA\DocuSign\Settings\Admin</admin>
