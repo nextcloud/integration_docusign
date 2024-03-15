@@ -1,5 +1,5 @@
 <template>
-	<NcMultiselect
+	<NcSelect
 		class="approval-multiselect"
 		label="displayName"
 		track-by="trackKey"
@@ -42,7 +42,7 @@
 		<template #noResult>
 			{{ t('approval', 'No result.') }}
 		</template>
-	</NcMultiselect>
+	</NcSelect>
 </template>
 
 <script>
@@ -52,14 +52,14 @@ import { showError } from '@nextcloud/dialogs'
 import axios from '@nextcloud/axios'
 
 import NcAvatar from '@nextcloud/vue/dist/Components/NcAvatar.js'
-import NcMultiselect from '@nextcloud/vue/dist/Components/NcMultiselect.js'
+import NcSelect from '@nextcloud/vue/dist/Components/NcSelect.js'
 
 export default {
 	name: 'MultiselectWho',
 
 	components: {
 		NcAvatar,
-		NcMultiselect,
+		NcSelect,
 	},
 
 	props: {
