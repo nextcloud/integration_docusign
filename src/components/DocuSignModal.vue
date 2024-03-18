@@ -5,34 +5,40 @@
 			@close="closeRequestModal">
 			<div class="docusign-modal-content">
 				<h2>
-					{{ t('approval', 'Request a signature via DocuSign') }}
+					{{ t('integration_docusign', 'Request a signature via DocuSign') }}
 				</h2>
 				<span class="field-label">
-					{{ t('approval', 'Users or email addresses') }}
+					{{ t('integration_docusign', 'Users or email addresses') }}
 				</span>
 				<MultiselectWho
 					ref="multiselect"
 					class="userInput"
 					:value="selectedItems"
-					:max-height="200"
 					:types="[0]"
 					:enable-emails="true"
 					:placeholder="t('approval', 'Nextcloud users or email addresses')"
+					:label="t('integration_docusign', 'Users or email addresses')"
 					@update:value="updateSelectedItems($event)" />
-				<p class="settings-hint">
-					{{ t('approval', 'Recipients will receive an email from DocuSign with a link to sign the document. You will be informed by email when the document has been signed by all recipients.') }}
-				</p>
+				<NcEmptyContent
+					:name="t('integration_docusign', 'DocuSign workflow')"
+					:description="t('integration_docusign', 'Recipients will receive an email from DocuSign with a link to sign the document. You will be informed by email when the document has been signed by all recipients.')">
+					<template #icon>
+						<DocusignIcon />
+					</template>
+				</NcEmptyContent>
 				<div class="docusign-footer">
-					<button
+					<NcButton
 						@click="closeRequestModal">
-						{{ t('approval', 'Cancel') }}
-					</button>
-					<button class="primary"
-						:class="{ loading }"
+						{{ t('integration_docusign', 'Cancel') }}
+					</NcButton>
+					<NcButton type="primary"
 						:disabled="!canValidate"
 						@click="onSignClick">
-						{{ t('approval', 'Request signature') }}
-					</button>
+						{{ t('integration_docusign', 'Request signature') }}
+						<template v-if="loading" #icon>
+							<NcLoadingIcon />
+						</template>
+					</NcButton>
 				</div>
 			</div>
 		</NcModal>
@@ -41,8 +47,12 @@
 
 <script>
 import NcModal from '@nextcloud/vue/dist/Components/NcModal.js'
+import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
+import NcLoadingIcon from '@nextcloud/vue/dist/Components/NcLoadingIcon.js'
+import NcEmptyContent from '@nextcloud/vue/dist/Components/NcEmptyContent.js'
 
 import MultiselectWho from './MultiselectWho.vue'
+import DocusignIcon from './icons/DocusignIcon.vue'
 
 import axios from '@nextcloud/axios'
 import { generateUrl } from '@nextcloud/router'
@@ -52,8 +62,12 @@ export default {
 	name: 'DocuSignModal',
 
 	components: {
+		DocusignIcon,
 		NcModal,
 		MultiselectWho,
+		NcButton,
+		NcLoadingIcon,
+		NcEmptyContent,
 	},
 
 	props: [],
@@ -115,7 +129,7 @@ export default {
 				console.debug(error.response)
 				showError(
 					t('approval', 'Failed to request signature with DocuSign')
-					+ ': ' + (error.response?.data?.response?.message ?? error.response?.data?.error ?? error.response?.request?.responseText ?? '')
+					+ ': ' + (error.response?.data?.response?.message ?? error.response?.data?.error ?? error.response?.request?.responseText ?? ''),
 				)
 			}).then(() => {
 				this.loading = false
@@ -139,22 +153,20 @@ export default {
 	.userInput {
 		width: 100%;
 		margin: 0 0 28px 0;
+		--vs-dropdown-max-height: 300px;
 	}
 
 	.settings-hint {
 		color: var(--color-text-maxcontrast);
-		margin: 16px 0 16px 0;
+		margin: 52px 0 52px 0;
 	}
 }
 
 .docusign-footer {
 	margin-top: 16px;
-	.primary {
-		float: right;
-	}
-	.icon {
-		opacity: 1;
-	}
+	display: flex;
+	gap: 8px;
+	justify-content: end;
 }
 
 .field-label {

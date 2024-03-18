@@ -1,46 +1,42 @@
 <template>
 	<NcSelect
-		class="approval-multiselect"
+		class="docusign-multiselect"
 		label="displayName"
 		track-by="trackKey"
 		:value="value"
 		:multiple="true"
 		:clear-on-select="true"
-		:hide-selected="false"
-		:internal-search="false"
 		:loading="loadingSuggestions"
 		:options="formattedSuggestions"
 		:placeholder="placeholder"
-		:preselect-first="false"
-		:preserve-search="false"
 		:searchable="true"
-		:auto-limit="false"
-		:user-select="true"
+		:append-to-body="false"
+		:aria-label-combobox="label"
 		v-bind="$attrs"
-		@search-change="asyncFind"
-		@update:value="$emit('update:value', $event)">
-		<template #option="{option}">
-			<NcAvatar v-if="option.type === 'user'"
-				class="approval-avatar-option"
-				:user="option.entityId"
-				:show-user-status="false" />
-			<NcAvatar v-else-if="['group', 'circle', 'email'].includes(option.type)"
-				class="approval-avatar-option"
-				:display-name="option.displayName"
-				:is-no-user="true"
-				:disable-tooltip="true"
-				:show-user-status="false" />
-			<span class="multiselect-name">
-				{{ option.displayName }}
-			</span>
-			<span v-if="option.icon"
-				:class="{ icon: true, [option.icon]: true, 'multiselect-icon': true }" />
+		@search="asyncFind"
+		@input="$emit('update:value', $event)">
+		<template #option="option">
+			<div class="multiselect-option">
+				<NcAvatar v-if="option.type === 'user'"
+					class="approval-avatar-option"
+					:user="option.entityId"
+					:show-user-status="false" />
+				<NcAvatar v-else-if="['group', 'circle', 'email'].includes(option.type)"
+					class="approval-avatar-option"
+					:display-name="option.displayName"
+					:is-no-user="true"
+					:disable-tooltip="true"
+					:show-user-status="false" />
+				<NcHighlight
+					:text="option.displayName"
+					:search="query"
+					class="multiselect-name" />
+				<span v-if="option.icon"
+					:class="{ icon: true, [option.icon]: true, 'multiselect-icon': true }" />
+			</div>
 		</template>
-		<template #noOptions>
+		<template #no-options>
 			{{ t('approval', 'No recommendations. Start typing.') }}
-		</template>
-		<template #noResult>
-			{{ t('approval', 'No result.') }}
 		</template>
 	</NcSelect>
 </template>
@@ -53,6 +49,7 @@ import axios from '@nextcloud/axios'
 
 import NcAvatar from '@nextcloud/vue/dist/Components/NcAvatar.js'
 import NcSelect from '@nextcloud/vue/dist/Components/NcSelect.js'
+import NcHighlight from '@nextcloud/vue/dist/Components/NcHighlight.js'
 
 export default {
 	name: 'MultiselectWho',
@@ -60,6 +57,7 @@ export default {
 	components: {
 		NcAvatar,
 		NcSelect,
+		NcHighlight,
 	},
 
 	props: {
@@ -79,7 +77,11 @@ export default {
 		},
 		placeholder: {
 			type: String,
-			default: t('approval', 'Who?'),
+			default: t('integration_docusign', 'Who?'),
+		},
+		label: {
+			type: String,
+			default: t('integration_docusign', 'Users or groups'),
 		},
 		enableEmails: {
 			type: Boolean,
@@ -251,7 +253,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.approval-multiselect {
+:deep(.multiselect-option) {
+	display: flex;
+	align-items: center;
+
 	.multiselect-name {
 		flex-grow: 1;
 		margin-left: 10px;
