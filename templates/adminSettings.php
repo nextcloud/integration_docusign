@@ -1,6 +1,6 @@
 <?php
 $appId = OCA\DocuSign\AppInfo\Application::APP_ID;
-script($appId, $appId . '-adminSettings');
+\OCP\Util::addScript($appId, $appId . '-adminSettings');
 ?>
 
-<div id="approval_prefs"></div>
+<div id="docusign_prefs"></div>

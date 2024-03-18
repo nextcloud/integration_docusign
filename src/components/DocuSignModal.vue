@@ -16,7 +16,7 @@
 					:value="selectedItems"
 					:types="[0]"
 					:enable-emails="true"
-					:placeholder="t('approval', 'Nextcloud users or email addresses')"
+					:placeholder="t('integration_docusign', 'Nextcloud users or email addresses')"
 					:label="t('integration_docusign', 'Users or email addresses')"
 					@update:value="updateSelectedItems($event)" />
 				<NcEmptyContent
@@ -123,12 +123,12 @@ export default {
 			}
 			const url = generateUrl('/apps/integration_docusign/docusign/standalone-sign/' + this.fileId)
 			axios.put(url, req).then((response) => {
-				showSuccess(t('approval', 'Recipients will receive an email from DocuSign to sign the document'))
+				showSuccess(t('integration_docusign', 'Recipients will receive an email from DocuSign to sign the document'))
 				this.closeRequestModal()
 			}).catch((error) => {
 				console.debug(error.response)
 				showError(
-					t('approval', 'Failed to request signature with DocuSign')
+					t('integration_docusign', 'Failed to request signature with DocuSign')
 					+ ': ' + (error.response?.data?.response?.message ?? error.response?.data?.error ?? error.response?.request?.responseText ?? ''),
 				)
 			}).then(() => {

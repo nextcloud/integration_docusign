@@ -18,11 +18,11 @@
 		<template #option="option">
 			<div class="multiselect-option">
 				<NcAvatar v-if="option.type === 'user'"
-					class="approval-avatar-option"
+					class="docusign-avatar-option"
 					:user="option.entityId"
 					:show-user-status="false" />
 				<NcAvatar v-else-if="['group', 'circle', 'email'].includes(option.type)"
-					class="approval-avatar-option"
+					class="docusign-avatar-option"
 					:display-name="option.displayName"
 					:is-no-user="true"
 					:disable-tooltip="true"
@@ -36,7 +36,7 @@
 			</div>
 		</template>
 		<template #no-options>
-			{{ t('approval', 'No recommendations. Start typing.') }}
+			{{ t('integration_docusign', 'No recommendations. Start typing.') }}
 		</template>
 	</NcSelect>
 </template>
@@ -242,7 +242,7 @@ export default {
 			}).then((response) => {
 				this.suggestions = response.data.ocs.data
 			}).catch((error) => {
-				showError(t('approval', 'Impossible to get user/group/circle list'))
+				showError(t('integration_docusign', 'Impossible to get user/group/circle list'))
 				console.error(error)
 			}).then(() => {
 				this.loadingSuggestions = false

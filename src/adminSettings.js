@@ -18,4 +18,4 @@ import Tooltip from '@nextcloud/vue/dist/Directives/Tooltip.js'
 Vue.directive('tooltip', Tooltip)
 
 const View = Vue.extend(AdminSettings)
-new View().$mount('#approval_prefs')
+new View().$mount('#docusign_prefs')
