@@ -5,7 +5,7 @@
 		 timeoutForSmallTests="900"
 		 timeoutForMediumTests="900"
 		 timeoutForLargeTests="900">
-	<testsuite name='Approval app tests'>
+	<testsuite name='Docusign integration app tests'>
 		<directory suffix=".php">./unit</directory>
 	</testsuite>
 	<!-- filters for code coverage -->
