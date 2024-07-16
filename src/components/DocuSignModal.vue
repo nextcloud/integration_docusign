@@ -161,6 +161,14 @@ export default {
 		color: var(--color-text-maxcontrast);
 		margin: 52px 0 52px 0;
 	}
+
+	.modal-title {
+		display: flex;
+		justify-content: center;
+		span {
+			margin-left: 8px;
+		}
+	}
 }
 
 .docusign-footer {
