@@ -6,7 +6,10 @@
 			@close="closeRequestModal">
 			<div class="docusign-modal-content">
 				<h2 id="docusign-modal-title" class="modal-title">
-					{{ t('integration_docusign', 'Request a signature via DocuSign') }}
+					<DocusignIcon />
+					<span class="modal-title-text">
+						{{ t('integration_docusign', 'Request a signature via DocuSign') }}
+					</span>
 				</h2>
 				<span class="field-label">
 					{{ t('integration_docusign', 'Users or email addresses') }}
@@ -165,7 +168,7 @@ export default {
 	.modal-title {
 		display: flex;
 		justify-content: center;
-		span {
+		.modal-title-text {
 			margin-left: 8px;
 		}
 	}
