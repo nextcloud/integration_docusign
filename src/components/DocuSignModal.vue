@@ -2,9 +2,10 @@
 	<div class="docusign-modal-container">
 		<NcModal v-if="show"
 			size="normal"
+			label-id="docusign-modal-title"
 			@close="closeRequestModal">
 			<div class="docusign-modal-content">
-				<h2>
+				<h2 id="docusign-modal-title" class="modal-title">
 					{{ t('integration_docusign', 'Request a signature via DocuSign') }}
 				</h2>
 				<span class="field-label">
