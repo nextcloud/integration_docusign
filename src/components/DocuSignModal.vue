@@ -2,10 +2,14 @@
 	<div class="docusign-modal-container">
 		<NcModal v-if="show"
 			size="normal"
+			label-id="docusign-modal-title"
 			@close="closeRequestModal">
 			<div class="docusign-modal-content">
-				<h2>
-					{{ t('integration_docusign', 'Request a signature via DocuSign') }}
+				<h2 id="docusign-modal-title" class="modal-title">
+					<DocusignIcon />
+					<span class="modal-title-text">
+						{{ t('integration_docusign', 'Request a signature via DocuSign') }}
+					</span>
 				</h2>
 				<span class="field-label">
 					{{ t('integration_docusign', 'Users or email addresses') }}
@@ -159,6 +163,14 @@ export default {
 	.settings-hint {
 		color: var(--color-text-maxcontrast);
 		margin: 52px 0 52px 0;
+	}
+
+	.modal-title {
+		display: flex;
+		justify-content: center;
+		.modal-title-text {
+			margin-left: 8px;
+		}
 	}
 }
 
