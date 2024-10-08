@@ -19,6 +19,8 @@ use OCA\DocuSign\Service\DocusignAPIService;
 
 use OCA\DocuSign\Service\UtilsService;
 use OCP\AppFramework\Controller;
+use OCP\AppFramework\Http\Attribute\NoAdminRequired;
+use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Http\RedirectResponse;
 
@@ -65,10 +67,9 @@ class DocusignController extends Controller {
 	}
 
 	/**
-	 * @NoAdminRequired
-	 *
 	 * @return DataResponse
 	 */
+	#[NoAdminRequired]
 	public function getDocusignInfo(): DataResponse {
 		$token = $this->config->getAppValue(Application::APP_ID, 'docusign_token');
 		$isConnected = ($token !== '');
@@ -78,13 +79,12 @@ class DocusignController extends Controller {
 	}
 
 	/**
-	 * @NoAdminRequired
-	 *
 	 * @param int $fileId
 	 * @param array $targetEmails
 	 * @param array $targetUserIds
 	 * @return DataResponse
 	 */
+	#[NoAdminRequired]
 	public function signStandalone(int $fileId, array $targetEmails = [], array $targetUserIds = []): DataResponse {
 		$token = $this->config->getAppValue(Application::APP_ID, 'docusign_token');
 		$clientID = $this->config->getAppValue(Application::APP_ID, 'docusign_client_id');
@@ -141,12 +141,12 @@ class DocusignController extends Controller {
 
 	/**
 	 * receive oauth code and get oauth access token
-	 * @NoCSRFRequired
 	 *
 	 * @param string $code
 	 * @param string $state
 	 * @return RedirectResponse
 	 */
+	#[NoCSRFRequired]
 	public function oauthRedirect(string $code = '', string $state = ''): RedirectResponse {
 		$configState = $this->config->getAppValue(Application::APP_ID, 'docusign_oauth_state');
 		$clientID = $this->config->getAppValue(Application::APP_ID, 'docusign_client_id');
