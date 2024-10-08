@@ -19,6 +19,7 @@ use OCA\DocuSign\Service\DocusignAPIService;
 
 use OCA\DocuSign\Service\UtilsService;
 use OCP\AppFramework\Controller;
+use OCP\AppFramework\Http\Attribute\FrontpageRoute;
 use OCP\AppFramework\Http\Attribute\NoAdminRequired;
 use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
 use OCP\AppFramework\Http\DataResponse;
@@ -70,6 +71,7 @@ class DocusignController extends Controller {
 	 * @return DataResponse
 	 */
 	#[NoAdminRequired]
+	#[FrontpageRoute(verb: 'GET', url: '/docusign/info')]
 	public function getDocusignInfo(): DataResponse {
 		$token = $this->config->getAppValue(Application::APP_ID, 'docusign_token');
 		$isConnected = ($token !== '');
@@ -85,6 +87,7 @@ class DocusignController extends Controller {
 	 * @return DataResponse
 	 */
 	#[NoAdminRequired]
+	#[FrontpageRoute(verb: 'PUT', url: '/docusign/standalone-sign/{fileId}')]
 	public function signStandalone(int $fileId, array $targetEmails = [], array $targetUserIds = []): DataResponse {
 		$token = $this->config->getAppValue(Application::APP_ID, 'docusign_token');
 		$clientID = $this->config->getAppValue(Application::APP_ID, 'docusign_client_id');
@@ -110,6 +113,7 @@ class DocusignController extends Controller {
 	 * @param array $values
 	 * @return DataResponse
 	 */
+	#[FrontpageRoute(verb: 'PUT', url: '/docusign-config')]
 	public function setDocusignConfig(array $values): DataResponse {
 		foreach ($values as $key => $value) {
 			if ($key === 'docusign_client_secret') {
@@ -147,6 +151,7 @@ class DocusignController extends Controller {
 	 * @return RedirectResponse
 	 */
 	#[NoCSRFRequired]
+	#[FrontpageRoute(verb: 'GET', url: '/docusign/oauth-redirect')]
 	public function oauthRedirect(string $code = '', string $state = ''): RedirectResponse {
 		$configState = $this->config->getAppValue(Application::APP_ID, 'docusign_oauth_state');
 		$clientID = $this->config->getAppValue(Application::APP_ID, 'docusign_client_id');
