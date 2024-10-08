@@ -9,6 +9,8 @@
  * @copyright Florian Klinger 2023
  */
 
+declare(strict_types=1);
+
 namespace OCA\DocuSign\Controller;
 
 use DateTime;

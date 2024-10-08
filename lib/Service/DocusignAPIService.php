@@ -9,6 +9,8 @@
  * @copyright Julien Veyssier 2020
  */
 
+declare(strict_types=1);
+
 namespace OCA\DocuSign\Service;
 
 use DateTime;

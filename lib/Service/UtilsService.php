@@ -9,6 +9,8 @@
  * @copyright Julien Veyssier 2021
  */
 
+declare(strict_types=1);
+
 namespace OCA\DocuSign\Service;
 
 use Exception;

@@ -7,6 +7,8 @@
  * @copyright Florian Klinger 2023
  */
 
+declare(strict_types=1);
+
 namespace OCA\DocuSign\AppInfo;
 
 use OCA\Files\Event\LoadAdditionalScriptsEvent;
