@@ -16,7 +16,6 @@ namespace OCA\DocuSign\Controller;
 use DateTime;
 use OCA\DocuSign\AppInfo\Application;
 use OCA\DocuSign\Service\DocusignAPIService;
-
 use OCA\DocuSign\Service\UtilsService;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\Attribute\FrontpageRoute;
@@ -24,7 +23,6 @@ use OCP\AppFramework\Http\Attribute\NoAdminRequired;
 use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Http\RedirectResponse;
-
 use OCP\IConfig;
 use OCP\IL10N;
 use OCP\IRequest;
@@ -73,7 +71,7 @@ class DocusignController extends Controller {
 	#[NoAdminRequired]
 	#[FrontpageRoute(verb: 'GET', url: '/docusign/info')]
 	public function getDocusignInfo(): DataResponse {
-		$token = $this->config->getAppValue(Application::APP_ID, 'docusign_token');
+		$token = $this->utilsService->getEncryptedAppValue('docusign_token');
 		$isConnected = ($token !== '');
 		return new DataResponse([
 			'connected' => $isConnected,
@@ -89,8 +87,8 @@ class DocusignController extends Controller {
 	#[NoAdminRequired]
 	#[FrontpageRoute(verb: 'PUT', url: '/docusign/standalone-sign/{fileId}')]
 	public function signStandalone(int $fileId, array $targetEmails = [], array $targetUserIds = []): DataResponse {
-		$token = $this->config->getAppValue(Application::APP_ID, 'docusign_token');
-		$clientID = $this->config->getAppValue(Application::APP_ID, 'docusign_client_id');
+		$token = $this->utilsService->getEncryptedAppValue('docusign_token');
+		$clientID = $this->utilsService->getEncryptedAppValue('docusign_client_id');
 		$clientSecret = $this->utilsService->getEncryptedAppValue('docusign_client_secret');
 		$isConnected = ($token !== '' && $clientID !== '' && $clientSecret !== '');
 		if (!$isConnected) {
@@ -116,7 +114,7 @@ class DocusignController extends Controller {
 	#[FrontpageRoute(verb: 'PUT', url: '/docusign-config')]
 	public function setDocusignConfig(array $values): DataResponse {
 		foreach ($values as $key => $value) {
-			if ($key === 'docusign_client_secret') {
+			if (in_array($key, ['docusign_client_id', 'docusign_client_secret', 'docusign_token', 'docusign_refresh_token'], true)) {
 				$this->utilsService->setEncryptedAppValue($key, $value);
 			} else {
 				$this->config->setAppValue(Application::APP_ID, $key, $value);
@@ -154,7 +152,7 @@ class DocusignController extends Controller {
 	#[FrontpageRoute(verb: 'GET', url: '/docusign/oauth-redirect')]
 	public function oauthRedirect(string $code = '', string $state = ''): RedirectResponse {
 		$configState = $this->config->getAppValue(Application::APP_ID, 'docusign_oauth_state');
-		$clientID = $this->config->getAppValue(Application::APP_ID, 'docusign_client_id');
+		$clientID = $this->utilsService->getEncryptedAppValue('docusign_client_id');
 		$clientSecret = $this->utilsService->getEncryptedAppValue('docusign_client_secret');
 
 		// anyway, reset state
@@ -170,11 +168,11 @@ class DocusignController extends Controller {
 			], 'POST');
 			if (isset($result['access_token'])) {
 				$accessToken = $result['access_token'];
-				$this->config->setAppValue(Application::APP_ID, 'docusign_token', $accessToken);
-				$this->config->setAppValue(Application::APP_ID, 'token_type', 'oauth');
+				$this->utilsService->setEncryptedAppValue('docusign_token', $accessToken);
+				$this->utilsService->setEncryptedAppValue('token_type', 'oauth');
 
 				$refreshToken = $result['refresh_token'];
-				$this->config->setAppValue(Application::APP_ID, 'docusign_refresh_token', $refreshToken);
+				$this->utilsService->setEncryptedAppValue('docusign_refresh_token', $refreshToken);
 				if (isset($result['expires_in']) && is_numeric($result['expires_in'])) {
 					$nowTs = (new DateTime())->getTimestamp();
 					$expiresIn = (int) $result['expires_in'];
@@ -203,8 +201,8 @@ class DocusignController extends Controller {
 	 * @return array
 	 */
 	private function storeUserInfo(string $accessToken): array {
-		$refreshToken = $this->config->getAppValue(Application::APP_ID, 'docusign_refresh_token');
-		$clientID = $this->config->getAppValue(Application::APP_ID, 'docusign_client_id');
+		$refreshToken = $this->utilsService->getEncryptedAppValue('docusign_refresh_token');
+		$clientID = $this->utilsService->getEncryptedAppValue('docusign_client_id');
 		$clientSecret = $this->utilsService->getEncryptedAppValue('docusign_client_secret');
 
 		$url = Application::DOCUSIGN_USER_INFO_REQUEST_URL;

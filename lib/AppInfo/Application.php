@@ -17,7 +17,6 @@ use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\EventDispatcher\IEventDispatcher;
-
 use OCP\Util;
 
 class Application extends App implements IBootstrap {

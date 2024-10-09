@@ -26,7 +26,6 @@ use OCP\Http\Client\IClientService;
 use OCP\IConfig;
 use OCP\IL10N;
 use OCP\IUserManager;
-
 use Psr\Log\LoggerInterface;
 
 class DocusignAPIService {
@@ -185,9 +184,9 @@ class DocusignAPIService {
 	public function emailSignRequest(File $file,
 		array $signers,
 		?string $ccEmail, ?string $ccName): array {
-		$accessToken = $this->config->getAppValue(Application::APP_ID, 'docusign_token');
-		$refreshToken = $this->config->getAppValue(Application::APP_ID, 'docusign_refresh_token');
-		$clientID = $this->config->getAppValue(Application::APP_ID, 'docusign_client_id');
+		$accessToken = $this->utilsService->getEncryptedAppValue('docusign_token');
+		$refreshToken = $this->utilsService->getEncryptedAppValue('docusign_refresh_token');
+		$clientID = $this->utilsService->getEncryptedAppValue('docusign_client_id');
 		$clientSecret = $this->utilsService->getEncryptedAppValue('docusign_client_secret');
 		$accountId = $this->config->getAppValue(Application::APP_ID, 'docusign_user_account_id');
 		$baseURI = $this->config->getAppValue(Application::APP_ID, 'docusign_user_base_uri');
@@ -263,9 +262,9 @@ class DocusignAPIService {
 			$this->logger->warning('Trying to REFRESH the DocuSign access token', ['app' => $this->appName]);
 			// try to refresh the token
 			$docusignTokenUrl = Application::DOCUSIGN_TOKEN_REQUEST_URL;
-			$clientId = $this->config->getAppValue(Application::APP_ID, 'docusign_client_id');
+			$clientId = $this->utilsService->getEncryptedAppValue('docusign_client_id');
 			$clientSecret = $this->utilsService->getEncryptedAppValue('docusign_client_secret');
-			$refreshToken = $this->config->getAppValue(Application::APP_ID, 'docusign_refresh_token');
+			$refreshToken = $this->utilsService->getEncryptedAppValue('docusign_refresh_token');
 
 			$params = [
 				'grant_type' => 'refresh_token',
@@ -276,11 +275,11 @@ class DocusignAPIService {
 
 			if (isset($result['access_token'])) {
 				$accessToken = $result['access_token'];
-				$this->config->setAppValue(Application::APP_ID, 'docusign_token', $accessToken);
+				$this->utilsService->setEncryptedAppValue('docusign_token', $accessToken);
 				// is there a new refresh token?
 				if (isset($result['refresh_token'])) {
 					$refreshToken = $result['refresh_token'];
-					$this->config->setAppValue(Application::APP_ID, 'docusign_refresh_token', $refreshToken);
+					$this->utilsService->setEncryptedAppValue('docusign_refresh_token', $refreshToken);
 				}
 
 				// add the new expires at timestamp
@@ -310,7 +309,7 @@ class DocusignAPIService {
 		string $endPoint = '', array $params = [], string $method = 'GET'): array {
 
 		$this->checkTokenExpiration();
-		$accessToken = $this->config->getAppValue(Application::APP_ID, 'docusign_token');
+		$accessToken = $this->utilsService->getEncryptedAppValue('docusign_token');
 		try {
 			$url = $baseUrl . $endPoint;
 			$options = [

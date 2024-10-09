@@ -19,7 +19,6 @@ use OCP\Constants;
 use OCP\Files\IRootFolder;
 use OCP\Files\Node;
 use OCP\IConfig;
-
 use OCP\IUser;
 use OCP\IUserManager;
 use OCP\Security\ICrypto;
