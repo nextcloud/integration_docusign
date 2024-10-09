@@ -7,6 +7,8 @@
  * @copyright Florian Klinger 2023
  */
 
+declare(strict_types=1);
+
 namespace OCA\DocuSign\AppInfo;
 
 use OCA\Files\Event\LoadAdditionalScriptsEvent;
@@ -15,7 +17,6 @@ use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\EventDispatcher\IEventDispatcher;
-
 use OCP\Util;
 
 class Application extends App implements IBootstrap {

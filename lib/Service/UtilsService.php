@@ -9,6 +9,8 @@
  * @copyright Julien Veyssier 2021
  */
 
+declare(strict_types=1);
+
 namespace OCA\DocuSign\Service;
 
 use Exception;
@@ -17,7 +19,6 @@ use OCP\Constants;
 use OCP\Files\IRootFolder;
 use OCP\Files\Node;
 use OCP\IConfig;
-
 use OCP\IUser;
 use OCP\IUserManager;
 use OCP\Security\ICrypto;

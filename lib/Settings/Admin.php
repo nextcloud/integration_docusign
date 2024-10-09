@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace OCA\DocuSign\Settings;
 
 use OCA\DocuSign\AppInfo\Application;
 use OCA\DocuSign\Service\DocusignAPIService;
+use OCA\DocuSign\Service\UtilsService;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Services\IInitialState;
-
 use OCP\IConfig;
 use OCP\Settings\ISettings;
 
@@ -21,6 +23,10 @@ class Admin implements ISettings {
 	 */
 	private $docusignAPIService;
 	/**
+	 * @var utilsService
+	 */
+	private $utilsService;
+	/**
 	 * @var string|null
 	 */
 	private $userId;
@@ -29,10 +35,12 @@ class Admin implements ISettings {
 		IConfig $config,
 		IInitialState $initialStateService,
 		DocusignAPIService $docusignAPIService,
+		UtilsService $utilsService,
 		?string $userId) {
 		$this->config = $config;
 		$this->initialStateService = $initialStateService;
 		$this->docusignAPIService = $docusignAPIService;
+		$this->utilsService = $utilsService;
 		$this->userId = $userId;
 	}
 
@@ -40,10 +48,10 @@ class Admin implements ISettings {
 	 * @return TemplateResponse
 	 */
 	public function getForm(): TemplateResponse {
-		$clientID = $this->config->getAppValue(Application::APP_ID, 'docusign_client_id');
-		$clientSecret = $this->config->getAppValue(Application::APP_ID, 'docusign_client_secret');
-		$token = $this->config->getAppValue(Application::APP_ID, 'docusign_token');
-		$refreshToken = $this->config->getAppValue(Application::APP_ID, 'docusign_refresh_token');
+		$clientID = $this->utilsService->getEncryptedAppValue('docusign_client_id');
+		$clientSecret = $this->utilsService->getEncryptedAppValue('docusign_client_secret');
+		$token = $this->utilsService->getEncryptedAppValue('docusign_token');
+		$refreshToken = $this->utilsService->getEncryptedAppValue('docusign_refresh_token');
 
 		$accounts = [];
 		// get and update user info
