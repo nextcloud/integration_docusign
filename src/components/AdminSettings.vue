@@ -77,6 +77,7 @@ import { generateUrl } from '@nextcloud/router'
 import axios from '@nextcloud/axios'
 import { delay } from '../utils.js'
 import { showSuccess, showError } from '@nextcloud/dialogs'
+import { confirmPassword } from '@nextcloud/password-confirmation'
 
 export default {
 	name: 'AdminSettings',
@@ -126,7 +127,8 @@ export default {
 	methods: {
 		onFieldInput() {
 			this.loading = true
-			delay(() => {
+			delay(async () => {
+				await confirmPassword()
 				this.saveOptions({
 					docusign_client_id: this.state.docusign_client_id,
 					docusign_client_secret: this.state.docusign_client_secret,

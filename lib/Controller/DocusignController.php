@@ -21,6 +21,7 @@ use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\Attribute\FrontpageRoute;
 use OCP\AppFramework\Http\Attribute\NoAdminRequired;
 use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
+use OCP\AppFramework\Http\Attribute\PasswordConfirmationRequired;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Http\RedirectResponse;
 use OCP\IConfig;
@@ -111,6 +112,7 @@ class DocusignController extends Controller {
 	 * @param array $values
 	 * @return DataResponse
 	 */
+	#[PasswordConfirmationRequired]
 	#[FrontpageRoute(verb: 'PUT', url: '/docusign-config')]
 	public function setDocusignConfig(array $values): DataResponse {
 		foreach ($values as $key => $value) {
