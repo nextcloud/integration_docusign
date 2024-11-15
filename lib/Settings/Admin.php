@@ -84,8 +84,8 @@ class Admin implements ISettings {
 		$userEmail = $this->config->getAppValue(Application::APP_ID, 'docusign_user_email');
 
 		$adminConfig = [
-			'docusign_client_id' => $clientID,
-			'docusign_client_secret' => $clientSecret,
+			'docusign_client_id' => $clientID ? 'dummyClientNumber' : '',
+			'docusign_client_secret' => $clientSecret ? 'dummyClientSecret' : '',
 			'docusign_token' => $token !== '',
 			'docusign_user_name' => $userName,
 			'docusign_user_email' => $userEmail,
