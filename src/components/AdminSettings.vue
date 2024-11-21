@@ -77,6 +77,7 @@ import { generateUrl } from '@nextcloud/router'
 import axios from '@nextcloud/axios'
 import { delay } from '../utils.js'
 import { showSuccess, showError } from '@nextcloud/dialogs'
+import { confirmPassword } from '@nextcloud/password-confirmation'
 
 export default {
 	name: 'AdminSettings',
@@ -126,11 +127,17 @@ export default {
 	methods: {
 		onFieldInput() {
 			this.loading = true
-			delay(() => {
-				this.saveOptions({
-					docusign_client_id: this.state.docusign_client_id,
-					docusign_client_secret: this.state.docusign_client_secret,
-				})
+			delay(async () => {
+				await confirmPassword()
+
+				const values = {}
+				if (this.state.docusign_client_id !== 'dummyClientNumber') {
+					values.docusign_client_id = this.state.docusign_client_id
+				}
+				if (this.state.docusign_client_secret !== 'dummyClientSecret') {
+					values.docusign_client_secret = this.state.docusign_client_secret
+				}
+				this.saveOptions(values)
 			}, 2000)()
 		},
 		saveOptions(values) {
@@ -153,6 +160,20 @@ export default {
 				})
 		},
 		onOAuthClick() {
+			let dummyValueProvided = false
+			if (this.state.docusign_client_id === 'dummyClientNumber') {
+				this.state.docusign_client_id = ''
+				dummyValueProvided = true
+			}
+			if (this.state.docusign_client_secret === 'dummyClientSecret') {
+				this.state.docusign_client_secret = ''
+				dummyValueProvided = true
+			}
+			if (dummyValueProvided) {
+				showError(t('integration_docusign', 'For security reasons, please enter your client credentials again'))
+				return
+			}
+
 			const oauthState = Math.random().toString(36).substring(3)
 			const scopes = [
 				'signature',
