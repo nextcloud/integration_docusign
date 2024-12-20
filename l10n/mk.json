@@ -1,0 +1,7 @@
+{ "translations": {
+    "Error getting OAuth access token" : "Грешка при добивање на OAuth пристапен токен",
+    "Connected accounts" : "Поврзани сметки",
+    "Connected as {user} ({email})" : "Поврзан како {user} ({email})",
+    "Cancel" : "Откажи"
+},"pluralForm" :"nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;"
+}

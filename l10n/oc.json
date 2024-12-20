@@ -1,0 +1,7 @@
+{ "translations": {
+    "Signature of %s" : "Signatura de %s",
+    "Connected accounts" : "Comptes connectats",
+    "Connect to DocuSign" : "Se connectar a DocuSign",
+    "Cancel" : "Anullar"
+},"pluralForm" :"nplurals=2; plural=(n > 1);"
+}

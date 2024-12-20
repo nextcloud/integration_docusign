@@ -1,0 +1,9 @@
+{ "translations": {
+    "Error getting OAuth access token" : "OAuth アクセストークン取得時のエラー",
+    "Bad HTTP method" : "不正なHTTPメソッド",
+    "Connected accounts" : "接続済みアカウント",
+    "Users or email addresses" : "ユーザーまたはメールアドレス",
+    "Nextcloud users or email addresses" : "Nextcloudのユーザーまたはメールアドレス",
+    "Cancel" : "キャンセル"
+},"pluralForm" :"nplurals=1; plural=0;"
+}

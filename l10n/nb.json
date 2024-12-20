@@ -1,0 +1,27 @@
+{ "translations": {
+    "Error getting OAuth access token" : "En feil oppsto ved henting av OAuth access token",
+    "Signature of %s" : "Signatur av %s",
+    "Bad HTTP method" : "HTTP-metode er feil",
+    "Connected accounts" : "Tilknyttede kontoer",
+    "DocuSign is an electronic signature solution." : "DocuSign er en elektronisk signaturløsning.",
+    "If you want to use DocuSign, create an application in your DocuSign \"My Apps & Keys\" developer account settings and put the client ID (integration key) and secret below." : "Hvis du vil bruke DocuSign, opprett en ny applikasjon i din DocuSign-utviklerkonto under \"My Apps & Keys\"-innstillingene, og legg inn klient-ID (integrasjonsnøkkel) og hemmeligheten under.",
+    "Make sure you set this \"Redirect URI\":" : "Pass på at du fyller inn dette \"Redirect URI\":",
+    "Client ID of your application" : "Klient-IDen til din applikasjon",
+    "Application secret key" : "Applikasjonens hemmelige nøkkel",
+    "Secret key of your application" : "Hemmelig nøkkel til din applikasjon",
+    "Connect to DocuSign" : "Koble til DocuSign",
+    "Connected as {user} ({email})" : "Tilkoblet som {user} ({email})",
+    "Successfully connected to DocuSign!" : "Tilkoblingen til DocuSign er vellykket!",
+    "DocuSign admin options saved" : "DocuSign admin-innstillinger ble lagret",
+    "Failed to save DocuSign admin options" : "Kunne ikke lagre DocuSign admin-instillingene",
+    "Failed to save DocuSign OAuth state" : "Kunne ikke lagre tilstanden til DocuSign OAuth",
+    "Request a signature via DocuSign" : "Forespør en signatur via DocuSign",
+    "Users or email addresses" : "Brukere eller e-postadresser",
+    "Nextcloud users or email addresses" : "Nextcloud-brukere eller e-postadresser",
+    "Recipients will receive an email from DocuSign with a link to sign the document. You will be informed by email when the document has been signed by all recipients." : "Mottakere vil få en e-post fra DocuSign med en link for å signere dokumentet. Du vil bli informert på e-post når dokumentet er signert av alle mottakere.",
+    "Cancel" : "Avbryt",
+    "Request signature" : "Forespør signatur",
+    "Recipients will receive an email from DocuSign to sign the document" : "Mottakere vil få en e-post fra DocuSign for å signere dokumentet",
+    "Impossible to get user/group/circle list" : "Kunne ikke hente liste over bruker/gruppe/sirkel"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

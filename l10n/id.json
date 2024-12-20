@@ -1,0 +1,7 @@
+{ "translations": {
+    "Error getting OAuth access token" : "Terjadi kesalahan mendapatkan token akses OAuth",
+    "Bad HTTP method" : "Metode HTTP tidak benar",
+    "Connected accounts" : "Akun terhubung",
+    "Cancel" : "Batal"
+},"pluralForm" :"nplurals=1; plural=0;"
+}
