@@ -26,7 +26,7 @@ OC.L10N.register(
     "OAuth access token could not be obtained:" : "OAuth-Zugriffstoken konnte nicht abgerufen werden:",
     "DocuSign admin options saved" : "DocuSign Administrationseinstellungen gespeichert",
     "Failed to save DocuSign admin options" : "Fehler beim Speichern der DocuSign-Administrationseinstellungen",
-    "For security reasons, please enter your client credentials again" : "Aus Sicherheitsgründen geben Sie bitte erneut Ihre Anmeldedaten ein",
+    "For security reasons, please enter your client credentials again" : "Geben Sie bitte aus Sicherheitsgründen Ihre Anmeldedaten erneut ein",
     "Failed to save DocuSign OAuth state" : "Fehler beim Speichern des DocuSign-OAuth-Status",
     "Request a signature via DocuSign" : "Signatur über DocuSign anfordern",
     "Users or email addresses" : "Benutzer oder E-Mail-Adressen",
@@ -40,7 +40,7 @@ OC.L10N.register(
     "No recommendations. Start typing." : "Keine Empfehlungen. Beginnen Sie mit der Eingabe.",
     "Who?" : "Wer?",
     "Users or groups" : "Benutzer oder Gruppen",
-    "Impossible to get user/group/circle list" : "Es ist nicht möglich, eine Benutzer-/Gruppen-/Kreisliste zu erhalten",
+    "Impossible to get user/group/circle list" : "Es ist nicht möglich, eine Liste der Benutzer-/Gruppen-/Kreise abzurufen",
     "Request signature with DocuSign" : "Signatur über DocuSign anfordern"
 },
 "nplurals=2; plural=(n != 1);");
