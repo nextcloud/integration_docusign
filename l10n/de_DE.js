@@ -40,7 +40,7 @@ OC.L10N.register(
     "No recommendations. Start typing." : "Keine Empfehlungen. Beginnen Sie mit der Eingabe.",
     "Who?" : "Wer?",
     "Users or groups" : "Benutzer oder Gruppen",
-    "Impossible to get user/group/circle list" : "Es ist nicht möglich, eine Liste der Benutzer-/Gruppen-/Kreise abzurufen",
+    "Impossible to get user/group/circle list" : "Es ist nicht möglich, eine Liste der Benutzer/Gruppen/Kreise abzurufen",
     "Request signature with DocuSign" : "Signatur über DocuSign anfordern"
 },
 "nplurals=2; plural=(n != 1);");

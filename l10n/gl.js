@@ -9,6 +9,8 @@ OC.L10N.register(
     "OAuth access token refused" : "O testemuño de acceso de OAuth foi rexeitado",
     "Connected accounts" : "Contas conectadas",
     "DocuSign integration" : "Integración de DocuSign",
+    "Let users sign files via DocuSign" : "Permitir aos usuarios asinar ficheiros a través de DocuSign",
+    "Sign files via DocuSign Service." : "Asinar ficheiros a través do servizo de DocuSign.",
     "DocuSign is an electronic signature solution." : "DocuSign é unha solución de sinatura electrónica.",
     "If you want to use DocuSign, create an application in your DocuSign \"My Apps & Keys\" developer account settings and put the client ID (integration key) and secret below." : "Se quere usar DocuSign, cree unha aplicación nos axustes da súa conta «As miñas aplicacións e chaves» de DocuSign e coloque o ID de cliente (chave de integración) e o segredo a seguir.",
     "Make sure you set this \"Redirect URI\":" : "Asegúrese de definir este «URI de redirección»:",
@@ -24,10 +26,12 @@ OC.L10N.register(
     "OAuth access token could not be obtained:" : "Non foi posíbel obter o testemuño de acceso OAuth",
     "DocuSign admin options saved" : "Gardáronse as opcións de administración de DocuSign",
     "Failed to save DocuSign admin options" : "Produciuse un fallo ao gardar as opcións de administración de DocuSign",
+    "For security reasons, please enter your client credentials again" : "Por motivos de seguridade, introduza de novo as súas credenciais de cliente",
     "Failed to save DocuSign OAuth state" : "Produciuse un fallo ao gardar o estado do OAuth de DocuSign",
     "Request a signature via DocuSign" : "Solicitar unha sinatura a través de DocuSign",
     "Users or email addresses" : "Usuarios ou enderezos de correo-e",
     "Nextcloud users or email addresses" : "Usuarios de Nextcloud ou enderezos de correo-e",
+    "DocuSign workflow" : "Fluxo de traballo de DocuSign",
     "Recipients will receive an email from DocuSign with a link to sign the document. You will be informed by email when the document has been signed by all recipients." : "Os destinatarios recibirán un correo-e de DocuSign cunha ligazón para asinar o documento. Informarase por correo-e cando o documento sexa asinado por todos os destinatarios.",
     "Cancel" : "Cancelar",
     "Request signature" : "Solicitar sinatura",
@@ -36,6 +40,7 @@ OC.L10N.register(
     "No recommendations. Start typing." : "Non hai recomendacións. Comece a escribir.",
     "Who?" : "Quen?",
     "Users or groups" : "Usuarios ou grupos",
-    "Impossible to get user/group/circle list" : "Non é posíbel obter a lista de usuarios/grupos/círculos"
+    "Impossible to get user/group/circle list" : "Non é posíbel obter a lista de usuarios/grupos/círculos",
+    "Request signature with DocuSign" : "Solicitar a sinatura con DocuSign"
 },
 "nplurals=2; plural=(n != 1);");
