@@ -7,6 +7,8 @@
     "OAuth access token refused" : "OAuth-Zugriffstoken abgelehnt",
     "Connected accounts" : "Verbundene Konten",
     "DocuSign integration" : "DocuSign-Einbindung",
+    "Let users sign files via DocuSign" : "Benutzer können Dateien über DocuSign signieren",
+    "Sign files via DocuSign Service." : "Dateien über den DocuSign-Dienst signieren.",
     "DocuSign is an electronic signature solution." : "DocuSign ist eine elektronische Signaturlösung.",
     "If you want to use DocuSign, create an application in your DocuSign \"My Apps & Keys\" developer account settings and put the client ID (integration key) and secret below." : "Wenn du DocuSign verwenden möchtest, erstelle in den Einstellungen deines DocuSign-Entwicklerkontos \"Meine Apps & Schlüssel\" eine Anwendung und gebe die Client-ID (Integrationsschlüssel) und das Geheimnis unten ein.",
     "Make sure you set this \"Redirect URI\":" : "Stelle sicher, dass diese \"Weiterleitungs-URI\" gesetzt ist:",
@@ -22,10 +24,12 @@
     "OAuth access token could not be obtained:" : "OAuth-Zugriffstoken konnte nicht abgerufen werden:",
     "DocuSign admin options saved" : "Verwaltungseinstellungen von DocuSign gespeichert",
     "Failed to save DocuSign admin options" : "Fehler beim Speichern der DocuSign-Administratoroptionen",
+    "For security reasons, please enter your client credentials again" : "Gib bitte aus Sicherheitsgründen deine Anmeldedaten erneut ein",
     "Failed to save DocuSign OAuth state" : "Fehler beim Speichern des DocuSign-OAuth-Status",
     "Request a signature via DocuSign" : "Eine Signatur über DocuSign anfordern",
     "Users or email addresses" : "Benutzernamen oder E-Mail-Adressen",
     "Nextcloud users or email addresses" : "Nextcloud Benutzer oder E-Mail-Adressen",
+    "DocuSign workflow" : "DocuSign-Arbeitsablauf",
     "Recipients will receive an email from DocuSign with a link to sign the document. You will be informed by email when the document has been signed by all recipients." : "Die Empfänger erhalten von DocuSign eine E-Mail mit einem Link zum Unterschreiben des Dokuments. Du wirst per E-Mail benachrichtigt, wenn das Dokument von allen Empfängern unterschrieben wurde.",
     "Cancel" : "Abbrechen",
     "Request signature" : "Signatur anfordern",
@@ -33,6 +37,8 @@
     "Failed to request signature with DocuSign" : "Fehler beim Anfordern der Signatur mit DocuSign",
     "No recommendations. Start typing." : "Keine Vorschläge, beginne mit der Eingabe.",
     "Who?" : "Wer?",
-    "Impossible to get user/group/circle list" : "Es ist unmöglich diese(n) Benutzer/Gruppe/Kreis Liste zu erhalten."
+    "Users or groups" : "Benutzer oder Gruppen",
+    "Impossible to get user/group/circle list" : "Es ist unmöglich diese(n) Benutzer/Gruppe/Kreis Liste zu erhalten.",
+    "Request signature with DocuSign" : "Signatur über DocuSign anfordern"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
