@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [2.0.4] - 2025-01-30
+
+### Added
+
+* Automatic translation updates via Transifex
+
+### Changed
+
+* Multiple dependency updates
+
 ## [2.0.3] - 2024-11-22
 
 ### Added
@@ -49,7 +59,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 * Ability to request signature via DocuSign for all PDF files
 
-[Unreleased]: https://github.com/nextcloud/integration_docusign/compare/v2.0.3...HEAD
+[Unreleased]: https://github.com/nextcloud/integration_docusign/compare/v2.0.4...HEAD
+[2.0.4]: https://github.com/nextcloud/integration_docusign/compare/v2.0.3...v2.0.4
 [2.0.3]: https://github.com/nextcloud/integration_docusign/compare/v2.0.2...v2.0.3
 [2.0.2]: https://github.com/nextcloud/integration_docusign/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/nextcloud/integration_docusign/compare/v2.0.0...v2.0.1
