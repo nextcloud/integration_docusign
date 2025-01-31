@@ -10,7 +10,7 @@
     "Let users sign files via DocuSign" : "Benutzer können Dateien über DocuSign signieren",
     "Sign files via DocuSign Service." : "Dateien über den DocuSign-Dienst signieren.",
     "DocuSign is an electronic signature solution." : "DocuSign ist eine elektronische Signaturlösung.",
-    "If you want to use DocuSign, create an application in your DocuSign \"My Apps & Keys\" developer account settings and put the client ID (integration key) and secret below." : "Wenn du DocuSign verwenden möchtest, erstelle in den Einstellungen deines DocuSign-Entwicklerkontos \"Meine Apps & Schlüssel\" eine Anwendung und gebe die Client-ID (Integrationsschlüssel) und das Geheimnis unten ein.",
+    "If you want to use DocuSign, create an application in your DocuSign \"My Apps & Keys\" developer account settings and put the client ID (integration key) and secret below." : "Wenn du DocuSign verwenden möchtest, erstelle in den Einstellungen deines DocuSign-Entwicklerkontos \"Meine Apps & Schlüssel\" eine Anwendung und gib die Client-ID (Integrationsschlüssel) und das Geheimnis unten ein.",
     "Make sure you set this \"Redirect URI\":" : "Stelle sicher, dass diese \"Weiterleitungs-URI\" gesetzt ist:",
     "If your DocuSign user is associated with multiple DocuSign accounts, the default one will be used." : "Wenn dein DocuSign-Benutzer mit mehreren DocuSign-Konten verknüpft ist, wird das Standardkonto verwendet.",
     "Client ID (aka integration key)" : "Client-ID (auch bekannt als Integrationsschlüssel)",
