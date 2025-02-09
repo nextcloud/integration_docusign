@@ -1,10 +1,12 @@
 OC.L10N.register(
     "integration_docusign",
     {
+    "Bad credentials" : "Forkerte legitimationsoplysninger",
     "Connected accounts" : "Forbundne konti",
     "Connected as {user} ({email})" : "Forbundet som {user} ({email})",
     "Disconnect from DocuSign" : "Afbryd fra DocuSign",
     "Successfully connected to DocuSign!" : "Forbundet til DocuSign!",
+    "For security reasons, please enter your client credentials again" : "Af sikkerhedsmæssige årsager, så skal du angive dine klient legitimationsoplysninger igen",
     "Users or email addresses" : "Brugere eller e-mailadresser",
     "Nextcloud users or email addresses" : "Nextcloud brugere eller e-mailadresser",
     "Cancel" : "Annullér",
