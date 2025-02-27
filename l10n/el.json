@@ -7,18 +7,18 @@
     "OAuth access token refused" : "Το διακριτικό πρόσβασης OAuth απορρίφθηκε",
     "Connected accounts" : "Συνδεδεμένοι λογαριασμοί",
     "DocuSign integration" : "Ενσωμάτωση DocuSign",
-    "Application secret key" : "Κρυφό κλειδί εφαρμογής",
-    "Connect to DocuSign" : "Σύνδεση με DocuSign",
-    "Disconnect from DocuSign" : "Αποσύνδεση από DocuSign",
     "Successfully connected to DocuSign!" : "Επιτυχής σύνδεση στο DocuSign!",
     "OAuth access token could not be obtained:" : "Δεν ήταν δυνατή η λήψη διακριτικού πρόσβασης OAuth:",
     "DocuSign admin options saved" : "Οι επιλογές διαχειριστή DocuSign αποθηκεύτηκαν",
     "Failed to save DocuSign admin options" : "Αποτυχία αποθήκευσης επιλογών διαχειριστή DocuSign",
+    "Application secret key" : "Κρυφό κλειδί εφαρμογής",
+    "Connect to DocuSign" : "Σύνδεση με DocuSign",
+    "Disconnect from DocuSign" : "Αποσύνδεση από DocuSign",
     "Users or email addresses" : "Χρήστες και διευθύνσεις ηλεκτρονικού ταχυδρομείου",
     "Nextcloud users or email addresses" : "Χρήστες Nextcloud ή διευθύνσεις ηλεκτρονικού ταχυδρομείου",
     "Cancel" : "Ακύρωση",
     "Request signature" : "Αίτηση υπογραφής",
-    "No recommendations. Start typing." : "Δεν υπάρχουν συστάσεις. Αρχίστε να πληκτρολογείτε.",
-    "Who?" : "Ποιος;"
+    "Who?" : "Ποιος;",
+    "No recommendations. Start typing." : "Δεν υπάρχουν συστάσεις. Αρχίστε να πληκτρολογείτε."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

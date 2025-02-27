@@ -10,8 +10,8 @@ OC.L10N.register(
     "Users or email addresses" : "ユーザーまたはメールアドレス",
     "Nextcloud users or email addresses" : "Nextcloudのユーザーまたはメールアドレス",
     "Cancel" : "キャンセル",
-    "No recommendations. Start typing." : "推奨事項はありません。 入力を開始します。",
     "Who?" : "どちら様でしょうか？",
-    "Users or groups" : "ユーザーまたはグループ"
+    "Users or groups" : "ユーザーまたはグループ",
+    "No recommendations. Start typing." : "推奨事項はありません。 入力を開始します。"
 },
 "nplurals=1; plural=0;");
