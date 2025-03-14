@@ -3,7 +3,7 @@ OC.L10N.register(
     {
     "Bad HTTP method" : "Nederīgs HTTP pieprasījuma veids",
     "Bad credentials" : "Nederīgi pieteikšanās dati",
-    "Connected accounts" : "Savienotie konti",
+    "Connected accounts" : "Sasaistītie konti",
     "Users or email addresses" : "Lietotāji vai e-pasta adreses",
     "Nextcloud users or email addresses" : "Nextcloud lietotāji vai e-pasta adreses",
     "Cancel" : "Atcelt"
