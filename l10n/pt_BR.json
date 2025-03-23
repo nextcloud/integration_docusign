@@ -28,6 +28,7 @@
     "Request a signature via DocuSign" : "Solicite assinatura via DocuSign",
     "Users or email addresses" : "Usuários ou endereços de e-mail",
     "Nextcloud users or email addresses" : "Usuários do Nextcloud ou endereços de e-mail",
+    "DocuSign workflow" : "Fluxo de trabalho do DocuSign",
     "Recipients will receive an email from DocuSign with a link to sign the document. You will be informed by email when the document has been signed by all recipients." : "Os destinatários receberão um e-mail do DocuSign com um link para assinar o documento. Você será informado por e-mail quando o documento for assinado por todos os destinatários.",
     "Cancel" : "Cancelar",
     "Request signature" : "Solicite assinatura",
