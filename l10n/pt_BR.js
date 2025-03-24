@@ -9,10 +9,13 @@ OC.L10N.register(
     "OAuth access token refused" : "Token de acesso OAuth recusado",
     "Connected accounts" : "Contas conectadas",
     "DocuSign integration" : "Integração com DocuSign",
+    "Let users sign files via DocuSign" : "Permita que os usuários assinem arquivos via DocuSign",
+    "Sign files via DocuSign Service." : "Assine arquivos por meio do serviço DocuSign.",
     "Successfully connected to DocuSign!" : "Conectado com sucesso ao DocuSign!",
     "OAuth access token could not be obtained:" : "Não foi possível obter o token de acesso OAuth:",
     "DocuSign admin options saved" : "Opções de administração do DocuSign salvas",
     "Failed to save DocuSign admin options" : "Falha ao salvar as opções de administrador do DocuSign",
+    "For security reasons, please enter your client credentials again" : "Por motivos de segurança, insira suas credenciais de cliente novamente",
     "Failed to save DocuSign OAuth state" : "Falha ao salvar o estado DocuSign OAuth",
     "DocuSign is an electronic signature solution." : "DocuSign é uma solução de assinatura eletrônica.",
     "If you want to use DocuSign, create an application in your DocuSign \"My Apps & Keys\" developer account settings and put the client ID (integration key) and secret below." : "Se desejar usar o DocuSign, crie um aplicativo nas configurações da conta de desenvolvedor \"Meus aplicativos e chaves\" do DocuSign e coloque o ID do cliente (chave de integração) e o segredo abaixo. ",
@@ -37,6 +40,7 @@ OC.L10N.register(
     "Who?" : "Quem?",
     "Users or groups" : "Usuários ou grupos",
     "Impossible to get user/group/circle list" : "Impossível obter lista de usuários/grupos/círculos",
-    "No recommendations. Start typing." : "Sem recomendações. Começe a digitar."
+    "No recommendations. Start typing." : "Sem recomendações. Começe a digitar.",
+    "Request signature with DocuSign" : "Solicitar uma assinatura com a DocuSign"
 },
 "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
