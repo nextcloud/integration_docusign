@@ -34,6 +34,7 @@ OC.L10N.register(
     "Cancel" : "Cancelar",
     "Request signature" : "Solicitar firma",
     "Who?" : "¿Quién?",
+    "Users or groups" : "Usuarios o grupos",
     "Impossible to get user/group/circle list" : "Imposible obtener la lista de usuarios/grupos/círculos",
     "No recommendations. Start typing." : "Sin recomendaciones. Empiece a escribir."
 },
