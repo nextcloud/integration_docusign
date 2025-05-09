@@ -178,7 +178,7 @@ class DocusignController extends Controller {
 				if (isset($result['expires_in']) && is_numeric($result['expires_in'])) {
 					$nowTs = (new DateTime())->getTimestamp();
 					$expiresIn = (int) $result['expires_in'];
-					$this->config->setAppValue(Application::APP_ID, 'docusign_token_expires_at', $nowTs + $result['expires_in']);
+					$this->config->setAppValue(Application::APP_ID, 'docusign_token_expires_at', $nowTs + $expiresIn);
 				}
 
 				// get user info
