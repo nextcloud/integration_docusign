@@ -139,8 +139,8 @@ jobs:
         if: steps.check_composer.outputs.files_exists == 'true'
         working-directory: apps/${{ env.APP_NAME }}
         run: |
-          composer remove nextcloud/ocp --dev
-          composer i
+          composer i --no-dev
+          composer require --dev phpunit/phpunit
 
       - name: Set up Nextcloud
         env:
