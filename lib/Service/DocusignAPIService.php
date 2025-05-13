@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Nextcloud - zammad
  *
@@ -245,7 +246,7 @@ class DocusignAPIService {
 			];
 		}
 
-		$endPoint = '/restapi/v2.1/accounts/' . $accountId .'/envelopes';
+		$endPoint = '/restapi/v2.1/accounts/' . $accountId . '/envelopes';
 		return $this->apiRequest($baseURI, $accessToken, $refreshToken, $clientID, $clientSecret, $endPoint, $enveloppe, 'POST');
 	}
 
@@ -255,7 +256,7 @@ class DocusignAPIService {
 		if (!is_numeric($tokenExpiresAt)) {
 			return;
 		}
-		$tokenExpiresAt = (int) $tokenExpiresAt;
+		$tokenExpiresAt = (int)$tokenExpiresAt;
 		$nowTs = (new DateTime())->getTimestamp();
 
 		if ($nowTs >= $tokenExpiresAt) {
@@ -285,8 +286,8 @@ class DocusignAPIService {
 				// add the new expires at timestamp
 				if (isset($result['expires_in']) && is_numeric($result['expires_in'])) {
 					$nowTs = (new DateTime())->getTimestamp();
-					$expiresIn = (int) $result['expires_in'];
-					$this->config->setAppValue(Application::APP_ID, 'docusign_token_expires_at', (string) ($nowTs + $expiresIn));
+					$expiresIn = (int)$result['expires_in'];
+					$this->config->setAppValue(Application::APP_ID, 'docusign_token_expires_at', (string)($nowTs + $expiresIn));
 				}
 			}
 		}
@@ -347,11 +348,11 @@ class DocusignAPIService {
 			} else {
 				return json_decode($body, true);
 			}
-		} catch (ServerException | ClientException $e) {
+		} catch (ServerException|ClientException $e) {
 			$response = $e->getResponse();
-			$body = (string) $response->getBody();
+			$body = (string)$response->getBody();
 			// parse response
-			$this->logger->warning('DocuSign API error : '.$e->getMessage(), ['app' => Application::APP_ID]);
+			$this->logger->warning('DocuSign API error : ' . $e->getMessage(), ['app' => Application::APP_ID]);
 			return [
 				'error' => $e->getMessage(),
 				'response' => json_decode($body, true),
@@ -408,7 +409,7 @@ class DocusignAPIService {
 				return json_decode($body, true);
 			}
 		} catch (Exception $e) {
-			$this->logger->warning('DocuSign OAuth error : '.$e->getMessage(), ['app' => $this->appName]);
+			$this->logger->warning('DocuSign OAuth error : ' . $e->getMessage(), ['app' => $this->appName]);
 			return ['error' => $e->getMessage()];
 		}
 	}
