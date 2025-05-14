@@ -5,6 +5,7 @@
 	findUnusedBaselineEntry="true"
 	findUnusedCode="false"
 	resolveFromConfigFile="true"
+	ensureOverrideAttribute="false"
 	phpVersion="8.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="https://getpsalm.org/schema/config"
@@ -38,22 +39,6 @@
 				<referencedClass name="OCA\Files\Event\LoadAdditionalScriptsEvent" />
 			</errorLevel>
 		</UndefinedClass>
-		<UndefinedDocblockClass>
-			<errorLevel type="suppress">
-				<referencedClass name="Doctrine\DBAL\Schema\Table" />
-				<referencedClass name="OC\User\NoUserException" />
-				<referencedClass name="OCA\Circles\Exceptions\RequestBuilderException" />
-				<referencedClass name="OCA\Circles\Exceptions\InitiatorNotFoundException" />
-				<referencedClass name="Doctrine\DBAL\Schema\Schema" />
-				<referencedClass name="Doctrine\DBAL\Types\Type" />
-			</errorLevel>
-		</UndefinedDocblockClass>
-		<InvalidClass>
-			<errorLevel type="suppress">
-				<referencedClass name="OCP\Db\Exception" />
-				<referencedClass name="OCP\AppFramework\Db\QBMapper" />
-			</errorLevel>
-		</InvalidClass>
 	</issueHandlers>
 	<stubs>
 		<file name="tests/stubs/oc_hooks_emitter.php" />
