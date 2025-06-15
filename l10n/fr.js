@@ -15,7 +15,7 @@ OC.L10N.register(
     "OAuth access token could not be obtained:" : "Le jeton d’accès OAuth n’a pas pu être obtenu :",
     "DocuSign admin options saved" : "Options d’administration DocuSign enregistrées",
     "Failed to save DocuSign admin options" : "Impossible d’enregistrer les options d’administration DocuSign",
-    "For security reasons, please enter your client credentials again" : "Pour des raisons de sécurité, veuillez à nouveau saisir vos identifiants",
+    "For security reasons, please enter your client credentials again" : "Pour des raisons de sécurité, veuillez à nouveau saisir vos identifiants de connexion",
     "Failed to save DocuSign OAuth state" : "Impossible d’enregistrer l’état OAuth de DocuSign",
     "DocuSign is an electronic signature solution." : "DocuSign est un service de signature électronique.",
     "If you want to use DocuSign, create an application in your DocuSign \"My Apps & Keys\" developer account settings and put the client ID (integration key) and secret below." : "Si vous voulez utiliser DocuSign, créez une application dans les paramètres « My Apps & Keys » de votre compte développeur DocuSign et indiquez les client ID (integration key) et secret ci-dessous.",
