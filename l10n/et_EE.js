@@ -6,6 +6,7 @@ OC.L10N.register(
     "Bad HTTP method" : "Vigane HTTP-meetod",
     "Bad credentials" : "Vale kasutajanimi, salasõna või tunnusluba",
     "Connected accounts" : "Ühendatud kasutajakontod",
+    "OAuth access token could not be obtained:" : "Päringu vastusest ei õnnestunud OAuthi tunnusluba tuvastada:",
     "Users or email addresses" : "Kasutajad või e-posti aadressid",
     "Nextcloud users or email addresses" : "Nextcloudi kasutajad või e-posti aadressid",
     "Cancel" : "Tühista",
