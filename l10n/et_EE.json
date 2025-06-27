@@ -3,6 +3,7 @@
     "Error during OAuth exchanges" : "Viga OAuth andmevahetusel",
     "Bad HTTP method" : "Vigane HTTP-meetod",
     "Bad credentials" : "Vale kasutajanimi, salasõna või tunnusluba",
+    "OAuth access token refused" : "OAuthi tunnusluba pole õige.",
     "Connected accounts" : "Ühendatud kasutajakontod",
     "OAuth access token could not be obtained:" : "Päringu vastusest ei õnnestunud OAuthi tunnusluba tuvastada:",
     "Users or email addresses" : "Kasutajad või e-posti aadressid",
