@@ -78,6 +78,7 @@ jobs:
           PUPPETEER_SKIP_DOWNLOAD: true
         run: |
           npm ci
+          npx vue-demi-fix
           npm run build --if-present
 
       - name: Check build changes
