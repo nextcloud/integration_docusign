@@ -185,8 +185,8 @@ class DocusignController extends Controller {
 				// get user info
 				$this->storeUserInfo($accessToken);
 				return new RedirectResponse(
-					$this->urlGenerator->linkToRoute('settings.AdminSettings.index', ['section' => Application::ADMIN_SETTINGS_SECTION]) .
-					'?docusignToken=success'
+					$this->urlGenerator->linkToRoute('settings.AdminSettings.index', ['section' => Application::ADMIN_SETTINGS_SECTION])
+					. '?docusignToken=success'
 				);
 			}
 			$result = $this->l->t('Error getting OAuth access token') . ' ' . $result['error'];
@@ -194,8 +194,8 @@ class DocusignController extends Controller {
 			$result = $this->l->t('Error during OAuth exchanges');
 		}
 		return new RedirectResponse(
-			$this->urlGenerator->linkToRoute('settings.AdminSettings.index', ['section' => Application::ADMIN_SETTINGS_SECTION]) .
-			'?docusignToken=error&message=' . urlencode($result)
+			$this->urlGenerator->linkToRoute('settings.AdminSettings.index', ['section' => Application::ADMIN_SETTINGS_SECTION])
+			. '?docusignToken=error&message=' . urlencode($result)
 		);
 	}
 
