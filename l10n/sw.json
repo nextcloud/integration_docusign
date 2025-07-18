@@ -5,7 +5,12 @@
     "Bad credentials" : "Sifa mbaya",
     "OAuth access token refused" : "Ufikiaji wa token za OAuth umekataliwa",
     "Connected accounts" : "Akaunti zilizounganishwa",
+    "Users or email addresses" : "Users or email addresses",
+    "Nextcloud users or email addresses" : "Nextcloud users or email addresses",
     "Cancel" : "Cancel",
+    "Who?" : "Nani?",
+    "Users or groups" : "Watumiaji au makundi",
+    "Impossible to get user/group/circle list" : "Impossible to get user/group/circle list",
     "No recommendations. Start typing." : "Hakuna maoni. Anza kuchapisha"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
