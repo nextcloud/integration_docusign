@@ -15,12 +15,15 @@ OC.L10N.register(
     "Failed to save DocuSign admin options" : "Αποτυχία αποθήκευσης επιλογών διαχειριστή DocuSign",
     "Application secret key" : "Κρυφό κλειδί εφαρμογής",
     "Connect to DocuSign" : "Σύνδεση με DocuSign",
+    "Connected as {user} ({email})" : "Συνδεδεμένος ως {user} ({email})",
     "Disconnect from DocuSign" : "Αποσύνδεση από DocuSign",
     "Users or email addresses" : "Χρήστες και διευθύνσεις ηλεκτρονικού ταχυδρομείου",
     "Nextcloud users or email addresses" : "Χρήστες Nextcloud ή διευθύνσεις ηλεκτρονικού ταχυδρομείου",
     "Cancel" : "Ακύρωση",
     "Request signature" : "Αίτηση υπογραφής",
     "Who?" : "Ποιος;",
+    "Users or groups" : "Χρήστες ή ομάδες",
+    "Impossible to get user/group/circle list" : "Αδυναμία λήψης λίστας χρηστών/ομάδων/κύκλων",
     "No recommendations. Start typing." : "Δεν υπάρχουν συστάσεις. Αρχίστε να πληκτρολογείτε."
 },
 "nplurals=2; plural=(n != 1);");
