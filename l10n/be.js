@@ -1,6 +1,9 @@
 OC.L10N.register(
     "integration_docusign",
     {
+    "Error getting OAuth access token" : "Памылка атрымання токена доступу OAuth",
+    "OAuth access token refused" : "Токен доступу OAuth адхілены",
+    "OAuth access token could not be obtained:" : "Немагчыма атрымаць токен доступу OAuth:",
     "Cancel" : "Скасаваць",
     "Who?" : "Хто?",
     "No recommendations. Start typing." : "Няма рэкамендацый. Пачніце друкаваць."
