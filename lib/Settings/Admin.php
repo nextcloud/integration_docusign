@@ -9,11 +9,11 @@ use OCA\DocuSign\Service\DocusignAPIService;
 use OCA\DocuSign\Service\UtilsService;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Services\IInitialState;
-use OCP\IConfig;
+use OCP\IAppConfig;
 use OCP\Settings\ISettings;
 
 class Admin implements ISettings {
-	private $config;
+	private $appConfig;
 	/**
 	 * @var IInitialState
 	 */
@@ -32,12 +32,12 @@ class Admin implements ISettings {
 	private $userId;
 
 	public function __construct(string $appName,
-		IConfig $config,
+		IAppConfig $appConfig,
 		IInitialState $initialStateService,
 		DocusignAPIService $docusignAPIService,
 		UtilsService $utilsService,
 		?string $userId) {
-		$this->config = $config;
+		$this->appConfig = $appConfig;
 		$this->initialStateService = $initialStateService;
 		$this->docusignAPIService = $docusignAPIService;
 		$this->utilsService = $utilsService;
@@ -59,8 +59,8 @@ class Admin implements ISettings {
 			$url = Application::DOCUSIGN_USER_INFO_REQUEST_URL;
 			$info = $this->docusignAPIService->apiRequest($url, $token, $refreshToken, $clientID, $clientSecret);
 			if (isset($info['name'], $info['email'], $info['accounts']) && is_array($info['accounts']) && count($info['accounts']) > 0) {
-				$this->config->setAppValue(Application::APP_ID, 'docusign_user_name', $info['name']);
-				$this->config->setAppValue(Application::APP_ID, 'docusign_user_email', $info['email']);
+				$this->appConfig->setValueString(Application::APP_ID, 'docusign_user_name', $info['name'], lazy: true);
+				$this->appConfig->setValueString(Application::APP_ID, 'docusign_user_email', $info['email'], lazy: true);
 				$accounts = $info['accounts'];
 				$accountId = '';
 				$baseURI = '';
@@ -70,18 +70,18 @@ class Admin implements ISettings {
 						$baseURI = $account['base_uri'];
 					}
 				}
-				$this->config->setAppValue(Application::APP_ID, 'docusign_user_account_id', $accountId);
-				$this->config->setAppValue(Application::APP_ID, 'docusign_user_base_uri', $baseURI);
+				$this->appConfig->setValueString(Application::APP_ID, 'docusign_user_account_id', $accountId, lazy: true);
+				$this->appConfig->setValueString(Application::APP_ID, 'docusign_user_base_uri', $baseURI, lazy: true);
 			} else {
-				$this->config->deleteAppValue(Application::APP_ID, 'docusign_user_name');
-				$this->config->deleteAppValue(Application::APP_ID, 'docusign_user_email');
-				$this->config->deleteAppValue(Application::APP_ID, 'docusign_user_account_id');
-				$this->config->deleteAppValue(Application::APP_ID, 'docusign_user_base_uri');
+				$this->appConfig->deleteKey(Application::APP_ID, 'docusign_user_name');
+				$this->appConfig->deleteKey(Application::APP_ID, 'docusign_user_email');
+				$this->appConfig->deleteKey(Application::APP_ID, 'docusign_user_account_id');
+				$this->appConfig->deleteKey(Application::APP_ID, 'docusign_user_base_uri');
 			}
 		}
 
-		$userName = $this->config->getAppValue(Application::APP_ID, 'docusign_user_name');
-		$userEmail = $this->config->getAppValue(Application::APP_ID, 'docusign_user_email');
+		$userName = $this->appConfig->getValueString(Application::APP_ID, 'docusign_user_name', lazy: true);
+		$userEmail = $this->appConfig->getValueString(Application::APP_ID, 'docusign_user_email', lazy: true);
 
 		$adminConfig = [
 			'docusign_client_id' => $clientID ? 'dummyClientNumber' : '',
