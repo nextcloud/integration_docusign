@@ -19,7 +19,7 @@ use OCA\DocuSign\AppInfo\Application;
 use OCP\Constants;
 use OCP\Files\IRootFolder;
 use OCP\Files\Node;
-use OCP\IConfig;
+use OCP\IAppConfig;
 use OCP\IUser;
 use OCP\IUserManager;
 use OCP\Security\ICrypto;
@@ -49,9 +49,9 @@ class UtilsService {
 	 */
 	private $crypto;
 	/**
-	 * @var IConfig
+	 * @var IAppConfig
 	 */
-	private $config;
+	private $appConfig;
 
 	/**
 	 * Service providing storage, circles and tags tools
@@ -61,14 +61,14 @@ class UtilsService {
 		IShareManager $shareManager,
 		IRootFolder $root,
 		ISystemTagManager $tagManager,
-		IConfig $config,
+		IAppConfig $appConfig,
 		ICrypto $crypto) {
 		$this->userManager = $userManager;
 		$this->shareManager = $shareManager;
 		$this->root = $root;
 		$this->tagManager = $tagManager;
 		$this->crypto = $crypto;
-		$this->config = $config;
+		$this->appConfig = $appConfig;
 	}
 
 	/**
@@ -78,7 +78,7 @@ class UtilsService {
 	 * @throws Exception
 	 */
 	public function getEncryptedAppValue(string $key): string {
-		$storedValue = $this->config->getAppValue(Application::APP_ID, $key);
+		$storedValue = $this->appConfig->getValueString(Application::APP_ID, $key, lazy: true);
 		if ($storedValue === '') {
 			return '';
 		}
@@ -93,10 +93,10 @@ class UtilsService {
 	 */
 	public function setEncryptedAppValue(string $key, string $value): void {
 		if ($value === '') {
-			$this->config->setAppValue(Application::APP_ID, $key, '');
+			$this->appConfig->setValueString(Application::APP_ID, $key, '', lazy: true);
 		} else {
 			$encryptedClientSecret = $this->crypto->encrypt($value);
-			$this->config->setAppValue(Application::APP_ID, $key, $encryptedClientSecret);
+			$this->appConfig->setValueString(Application::APP_ID, $key, $encryptedClientSecret, lazy: true);
 		}
 	}
 
