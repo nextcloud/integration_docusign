@@ -7,8 +7,11 @@
     "Connected accounts" : "ئۇلانغان ھېساباتلار",
     "OAuth access token could not be obtained:" : "OAuth زىيارەت بەلگىسىگە ئېرىشەلمىدى:",
     "Connected as {user} ({email})" : "{user} ({email} خەت}) قىلىپ ئۇلاندى",
+    "Users or email addresses" : "ئىشلەتكۈچى ياكى ئېلخەت ئادىرسى",
+    "Nextcloud users or email addresses" : "Nextcloud ئىشلەتكۈچىلەر ياكى ئېلىخەت ئادىرسى",
     "Cancel" : "بىكار قىلىش",
     "Who?" : "كىم؟",
+    "Users or groups" : "ئىشلەتكۈچىلەر ياكى گۇرۇپپىلار",
     "Impossible to get user/group/circle list" : "ئىشلەتكۈچى / گۇرۇپپا / چەمبىرەك تىزىملىكىگە ئېرىشىش مۇمكىن ئەمەس",
     "No recommendations. Start typing." : "تەۋسىيە يوق. يېزىشنى باشلاڭ."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
