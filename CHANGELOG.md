@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [2.0.6] - 2025-11-21
+
+### Changed
+
+* Lazy load app configuration values
+* Bumped min-version to Nextcloud 29
+* Bumped max-version to Nextcloud 33
+* Multiple dependency updates
+
 ## [2.0.5] - 2025-07-03
 
 ### Changed
@@ -66,7 +75,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 * Ability to request signature via DocuSign for all PDF files
 
-[Unreleased]: https://github.com/nextcloud/integration_docusign/compare/v2.0.5...HEAD
+[Unreleased]: https://github.com/nextcloud/integration_docusign/compare/v2.0.6...HEAD
+[2.0.6]: https://github.com/nextcloud/integration_docusign/compare/v2.0.5...v2.0.6
 [2.0.5]: https://github.com/nextcloud/integration_docusign/compare/v2.0.4...v2.0.5
 [2.0.4]: https://github.com/nextcloud/integration_docusign/compare/v2.0.3...v2.0.4
 [2.0.3]: https://github.com/nextcloud/integration_docusign/compare/v2.0.2...v2.0.3
