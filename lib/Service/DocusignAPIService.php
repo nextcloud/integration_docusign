@@ -24,7 +24,7 @@ use OCP\Files\File;
 use OCP\Files\IRootFolder;
 use OCP\Http\Client\IClient;
 use OCP\Http\Client\IClientService;
-use OCP\IConfig;
+use OCP\IAppConfig;
 use OCP\IL10N;
 use OCP\IUserManager;
 use Psr\Log\LoggerInterface;
@@ -38,9 +38,9 @@ class DocusignAPIService {
 	 */
 	private $userManager;
 	/**
-	 * @var IConfig
+	 * @var IAppConfig
 	 */
-	private $config;
+	private $appConfig;
 	/**
 	 * @var IRootFolder
 	 */
@@ -65,7 +65,7 @@ class DocusignAPIService {
 		string $appName,
 		LoggerInterface $logger,
 		IL10N $l10n,
-		IConfig $config,
+		IAppConfig $appConfig,
 		IRootFolder $root,
 		IClientService $clientService,
 		UtilsService $utilsService) {
@@ -73,7 +73,7 @@ class DocusignAPIService {
 		$this->userManager = $userManager;
 		$this->logger = $logger;
 		$this->l10n = $l10n;
-		$this->config = $config;
+		$this->appConfig = $appConfig;
 		$this->root = $root;
 		$this->client = $clientService->newClient();
 		$this->utilsService = $utilsService;
@@ -189,8 +189,8 @@ class DocusignAPIService {
 		$refreshToken = $this->utilsService->getEncryptedAppValue('docusign_refresh_token');
 		$clientID = $this->utilsService->getEncryptedAppValue('docusign_client_id');
 		$clientSecret = $this->utilsService->getEncryptedAppValue('docusign_client_secret');
-		$accountId = $this->config->getAppValue(Application::APP_ID, 'docusign_user_account_id');
-		$baseURI = $this->config->getAppValue(Application::APP_ID, 'docusign_user_base_uri');
+		$accountId = $this->appConfig->getValueString(Application::APP_ID, 'docusign_user_account_id', lazy: true);
+		$baseURI = $this->appConfig->getValueString(Application::APP_ID, 'docusign_user_base_uri', lazy: true);
 
 		$docB64 = base64_encode($file->getContent());
 		$enveloppe = [
@@ -251,7 +251,7 @@ class DocusignAPIService {
 	}
 
 	private function checkTokenExpiration(): void {
-		$tokenExpiresAt = $this->config->getAppValue(Application::APP_ID, 'docusign_token_expires_at');
+		$tokenExpiresAt = $this->appConfig->getValueString(Application::APP_ID, 'docusign_token_expires_at', lazy: true);
 
 		if (!is_numeric($tokenExpiresAt)) {
 			return;
@@ -287,7 +287,7 @@ class DocusignAPIService {
 				if (isset($result['expires_in']) && is_numeric($result['expires_in'])) {
 					$nowTs = (new DateTime())->getTimestamp();
 					$expiresIn = (int)$result['expires_in'];
-					$this->config->setAppValue(Application::APP_ID, 'docusign_token_expires_at', (string)($nowTs + $expiresIn));
+					$this->appConfig->setValueString(Application::APP_ID, 'docusign_token_expires_at', (string)($nowTs + $expiresIn), lazy: true);
 				}
 			}
 		}

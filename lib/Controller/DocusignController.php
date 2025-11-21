@@ -25,14 +25,14 @@ use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
 use OCP\AppFramework\Http\Attribute\PasswordConfirmationRequired;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Http\RedirectResponse;
-use OCP\IConfig;
+use OCP\IAppConfig;
 use OCP\IL10N;
 use OCP\IRequest;
 use OCP\IURLGenerator;
 
 class DocusignController extends Controller {
 	private $userId;
-	private $config;
+	private $appConfig;
 	/**
 	 * @var IL10N
 	 */
@@ -52,14 +52,14 @@ class DocusignController extends Controller {
 
 	public function __construct($AppName,
 		IRequest $request,
-		IConfig $config,
+		IAppConfig $appConfig,
 		IL10N $l,
 		IURLGenerator $urlGenerator,
 		DocusignAPIService $docusignAPIService,
 		UtilsService $utilsService,
 		?string $userId) {
 		parent::__construct($AppName, $request);
-		$this->config = $config;
+		$this->appConfig = $appConfig;
 		$this->l = $l;
 		$this->urlGenerator = $urlGenerator;
 		$this->docusignAPIService = $docusignAPIService;
@@ -120,7 +120,7 @@ class DocusignController extends Controller {
 			if (in_array($key, ['docusign_client_id', 'docusign_client_secret', 'docusign_token', 'docusign_refresh_token'], true)) {
 				$this->utilsService->setEncryptedAppValue($key, $value);
 			} else {
-				$this->config->setAppValue(Application::APP_ID, $key, $value);
+				$this->appConfig->setValueString(Application::APP_ID, $key, $value, lazy: true);
 			}
 		}
 		$result = [];
@@ -129,11 +129,11 @@ class DocusignController extends Controller {
 			if ($values['docusign_token'] && $values['docusign_token'] !== '') {
 				// $result = $this->storeUserInfo($values['token']);
 			} else {
-				$this->config->deleteAppValue(Application::APP_ID, 'docusign_user_email');
-				$this->config->deleteAppValue(Application::APP_ID, 'docusign_user_name');
-				$this->config->deleteAppValue(Application::APP_ID, 'docusign_user_account_id');
-				$this->config->deleteAppValue(Application::APP_ID, 'docusign_token');
-				$this->config->deleteAppValue(Application::APP_ID, 'docusign_refresh_token');
+				$this->appConfig->deleteKey(Application::APP_ID, 'docusign_user_email');
+				$this->appConfig->deleteKey(Application::APP_ID, 'docusign_user_name');
+				$this->appConfig->deleteKey(Application::APP_ID, 'docusign_user_account_id');
+				$this->appConfig->deleteKey(Application::APP_ID, 'docusign_token');
+				$this->appConfig->deleteKey(Application::APP_ID, 'docusign_refresh_token');
 			}
 		}
 
@@ -154,15 +154,15 @@ class DocusignController extends Controller {
 	#[NoCSRFRequired]
 	#[FrontpageRoute(verb: 'GET', url: '/docusign/oauth-redirect')]
 	public function oauthRedirect(string $code = '', string $state = ''): RedirectResponse {
-		$configState = $this->config->getAppValue(Application::APP_ID, 'docusign_oauth_state');
+		$configState = $this->appConfig->getValueString(Application::APP_ID, 'docusign_oauth_state', lazy: true);
 		$clientID = $this->utilsService->getEncryptedAppValue('docusign_client_id');
 		$clientSecret = $this->utilsService->getEncryptedAppValue('docusign_client_secret');
 
 		// anyway, reset state
-		$this->config->deleteAppValue(Application::APP_ID, 'docusign_oauth_state');
+		$this->appConfig->deleteKey(Application::APP_ID, 'docusign_oauth_state');
 
 		if ($clientID && $clientSecret && $configState !== '' && $configState === $state) {
-			// $redirect_uri = $this->config->getAppValue(Application::APP_ID, 'docusign_redirect_uri', '');
+			// $redirect_uri = $this->appConfig->getValueString(Application::APP_ID, 'docusign_redirect_uri', lazy: true);
 			$docusignTokenUrl = Application::DOCUSIGN_TOKEN_REQUEST_URL;
 			$result = $this->docusignAPIService->requestOAuthAccessToken($docusignTokenUrl, $clientID, $clientSecret, [
 				'code' => $code,
@@ -179,7 +179,7 @@ class DocusignController extends Controller {
 				if (isset($result['expires_in']) && is_numeric($result['expires_in'])) {
 					$nowTs = (new DateTime())->getTimestamp();
 					$expiresIn = (int)$result['expires_in'];
-					$this->config->setAppValue(Application::APP_ID, 'docusign_token_expires_at', $nowTs + $expiresIn);
+					$this->appConfig->setValueString(Application::APP_ID, 'docusign_token_expires_at', (string)($nowTs + $expiresIn), lazy: true);
 				}
 
 				// get user info
@@ -212,8 +212,8 @@ class DocusignController extends Controller {
 
 		$info = $this->docusignAPIService->apiRequest($url, $accessToken, $refreshToken, $clientID, $clientSecret);
 		if (isset($info['name'], $info['email'], $info['accounts']) && is_array($info['accounts']) && count($info['accounts']) > 0) {
-			$this->config->setAppValue(Application::APP_ID, 'docusign_user_name', $info['name']);
-			$this->config->setAppValue(Application::APP_ID, 'docusign_user_email', $info['email']);
+			$this->appConfig->setValueString(Application::APP_ID, 'docusign_user_name', $info['name'], lazy: true);
+			$this->appConfig->setValueString(Application::APP_ID, 'docusign_user_email', $info['email'], lazy: true);
 			$accountId = '';
 			$baseURI = '';
 			foreach ($info['accounts'] as $account) {
@@ -222,14 +222,14 @@ class DocusignController extends Controller {
 					$baseURI = $account['base_uri'];
 				}
 			}
-			$this->config->setAppValue(Application::APP_ID, 'docusign_user_account_id', $accountId);
-			$this->config->setAppValue(Application::APP_ID, 'docusign_user_base_uri', $baseURI);
+			$this->appConfig->setValueString(Application::APP_ID, 'docusign_user_account_id', $accountId, lazy: true);
+			$this->appConfig->setValueString(Application::APP_ID, 'docusign_user_base_uri', $baseURI, lazy: true);
 			return ['docusign_user_name' => $info['name']];
 		} else {
-			$this->config->deleteAppValue(Application::APP_ID, 'docusign_user_name');
-			$this->config->deleteAppValue(Application::APP_ID, 'docusign_user_email');
-			$this->config->deleteAppValue(Application::APP_ID, 'docusign_user_account_id');
-			$this->config->deleteAppValue(Application::APP_ID, 'docusign_user_base_uri');
+			$this->appConfig->deleteKey(Application::APP_ID, 'docusign_user_name');
+			$this->appConfig->deleteKey(Application::APP_ID, 'docusign_user_email');
+			$this->appConfig->deleteKey(Application::APP_ID, 'docusign_user_account_id');
+			$this->appConfig->deleteKey(Application::APP_ID, 'docusign_user_base_uri');
 			return $info;
 		}
 	}

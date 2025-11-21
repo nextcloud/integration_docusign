@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c126031037f470fb05676e662916fd24",
+    "content-hash": "7626873334cf82989f633ea28a685311",
     "packages": [
         {
             "name": "bamarni/composer-bin-plugin",
@@ -67,26 +67,26 @@
     "packages-dev": [
         {
             "name": "kubawerlos/php-cs-fixer-custom-fixers",
-            "version": "v3.28.0",
+            "version": "v3.35.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kubawerlos/php-cs-fixer-custom-fixers.git",
-                "reference": "6115bffca3b8d1bfbd7eff7bdd5df1ffb3c8eddc"
+                "reference": "2a35f80ae24ca77443a7af1599c3a3db1b6bd395"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kubawerlos/php-cs-fixer-custom-fixers/zipball/6115bffca3b8d1bfbd7eff7bdd5df1ffb3c8eddc",
-                "reference": "6115bffca3b8d1bfbd7eff7bdd5df1ffb3c8eddc",
+                "url": "https://api.github.com/repos/kubawerlos/php-cs-fixer-custom-fixers/zipball/2a35f80ae24ca77443a7af1599c3a3db1b6bd395",
+                "reference": "2a35f80ae24ca77443a7af1599c3a3db1b6bd395",
                 "shasum": ""
             },
             "require": {
                 "ext-filter": "*",
                 "ext-tokenizer": "*",
-                "friendsofphp/php-cs-fixer": "^3.76",
+                "friendsofphp/php-cs-fixer": "^3.87",
                 "php": "^7.4 || ^8.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^9.6.22 || 10.5.45 || ^11.5.7"
+                "phpunit/phpunit": "^9.6.24 || ^10.5.51 || ^11.5.32"
             },
             "type": "library",
             "autoload": {
@@ -107,7 +107,7 @@
             "description": "A set of custom fixers for PHP CS Fixer",
             "support": {
                 "issues": "https://github.com/kubawerlos/php-cs-fixer-custom-fixers/issues",
-                "source": "https://github.com/kubawerlos/php-cs-fixer-custom-fixers/tree/v3.28.0"
+                "source": "https://github.com/kubawerlos/php-cs-fixer-custom-fixers/tree/v3.35.1"
             },
             "funding": [
                 {
@@ -115,7 +115,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-07-01T18:08:34+00:00"
+            "time": "2025-09-28T18:43:35+00:00"
         },
         {
             "name": "nextcloud/coding-standard",
@@ -164,16 +164,16 @@
         },
         {
             "name": "nextcloud/ocp",
-            "version": "dev-stable28",
+            "version": "dev-stable29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextcloud-deps/ocp.git",
-                "reference": "53924b92b5e16225b0bc222068c29fe9e91d445a"
+                "reference": "be97344a46d9a19169e20c10ab4f7b0a2b769df7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nextcloud-deps/ocp/zipball/53924b92b5e16225b0bc222068c29fe9e91d445a",
-                "reference": "53924b92b5e16225b0bc222068c29fe9e91d445a",
+                "url": "https://api.github.com/repos/nextcloud-deps/ocp/zipball/be97344a46d9a19169e20c10ab4f7b0a2b769df7",
+                "reference": "be97344a46d9a19169e20c10ab4f7b0a2b769df7",
                 "shasum": ""
             },
             "require": {
@@ -186,7 +186,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-stable28": "28.0.0-dev"
+                    "dev-stable29": "29.0.0-dev"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -202,22 +202,22 @@
             "description": "Composer package containing Nextcloud's public API (classes, interfaces)",
             "support": {
                 "issues": "https://github.com/nextcloud-deps/ocp/issues",
-                "source": "https://github.com/nextcloud-deps/ocp/tree/stable28"
+                "source": "https://github.com/nextcloud-deps/ocp/tree/stable29"
             },
-            "time": "2025-03-05T00:45:45+00:00"
+            "time": "2025-05-15T00:50:47+00:00"
         },
         {
             "name": "php-cs-fixer/shim",
-            "version": "v3.76.0",
+            "version": "v3.89.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/shim.git",
-                "reference": "b6804c2a1a4fbff582446a44ad678ae1689df1c3"
+                "reference": "8f1bf4fd7d8270020cd3c58756fcf3615ed14b68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/shim/zipball/b6804c2a1a4fbff582446a44ad678ae1689df1c3",
-                "reference": "b6804c2a1a4fbff582446a44ad678ae1689df1c3",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/shim/zipball/8f1bf4fd7d8270020cd3c58756fcf3615ed14b68",
+                "reference": "8f1bf4fd7d8270020cd3c58756fcf3615ed14b68",
                 "shasum": ""
             },
             "require": {
@@ -254,9 +254,9 @@
             "description": "A tool to automatically fix PHP code style",
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/shim/issues",
-                "source": "https://github.com/PHP-CS-Fixer/shim/tree/v3.76.0"
+                "source": "https://github.com/PHP-CS-Fixer/shim/tree/v3.89.2"
             },
-            "time": "2025-06-30T14:10:03+00:00"
+            "time": "2025-11-06T21:13:10+00:00"
         },
         {
             "name": "psr/clock",
@@ -470,9 +470,9 @@
     "platform": {
         "php": "^8.0 || ^8.1 || ^8.2 || ^8.3 || ^8.4"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "platform-overrides": {
         "php": "8.0"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
