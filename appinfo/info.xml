@@ -4,7 +4,7 @@
 	<name>DocuSign integration</name>
 	<summary>Let users sign files via DocuSign</summary>
 	<description><![CDATA[Sign files via DocuSign Service.]]></description>
-	<version>2.0.6</version>
+	<version>3.0.0</version>
 	<licence>agpl</licence>
 	<author>Florian Klinger</author>
 	<namespace>DocuSign</namespace>
