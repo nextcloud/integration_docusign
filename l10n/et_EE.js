@@ -11,6 +11,7 @@ OC.L10N.register(
     "Users or email addresses" : "Kasutajad või e-posti aadressid",
     "Nextcloud users or email addresses" : "Nextcloudi kasutajad või e-posti aadressid",
     "Cancel" : "Tühista",
+    "Request signature" : "Palu allkirjastamist",
     "Who?" : "Kes?",
     "Users or groups" : "Kasutajad või grupid",
     "Impossible to get user/group/circle list" : "Kasutajate, gruppide või tiimide loendi laadimine ei õnnestu",
