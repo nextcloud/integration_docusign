@@ -12,6 +12,7 @@ OC.L10N.register(
     "Users or email addresses" : "ئىشلەتكۈچى ياكى ئېلخەت ئادىرسى",
     "Nextcloud users or email addresses" : "Nextcloud ئىشلەتكۈچىلەر ياكى ئېلىخەت ئادىرسى",
     "Cancel" : "بىكار قىلىش",
+    "Request signature" : "ئىمزا تەلەپ قىلىش",
     "Who?" : "كىم؟",
     "Users or groups" : "ئىشلەتكۈچىلەر ياكى گۇرۇپپىلار",
     "Impossible to get user/group/circle list" : "ئىشلەتكۈچى / گۇرۇپپا / چەمبىرەك تىزىملىكىگە ئېرىشىش مۇمكىن ئەمەس",
