@@ -35,10 +35,10 @@ if (!OCA.DocuSign) {
 
 const requestSignatureAction = new FileAction({
 	id: 'docusign-sign',
-	displayName: (nodes) => {
+	displayName: () => {
 		return t('integration_docusign', 'Request signature with DocuSign')
 	},
-	enabled(nodes, view) {
+	enabled({ nodes, view }) {
 		return !OCA.DocuSign.ignoreLists.includes(view.id)
 			&& nodes.length === 1
 			&& !nodes.some(({ permissions }) => (permissions & Permission.READ) === 0)
@@ -46,8 +46,8 @@ const requestSignatureAction = new FileAction({
 			&& !nodes.some(({ mime }) => mime !== 'application/pdf')
 	},
 	iconSvgInline: () => DocuSignIcon,
-	async exec(node) {
-		OCA.DocuSign.DocuSignModalVue.$children[0].setFileId(node.fileid)
+	async exec({ nodes }) {
+		OCA.DocuSign.DocuSignModalVue.$children[0].setFileId(nodes[0].fileid)
 		OCA.DocuSign.DocuSignModalVue.$children[0].showModal()
 		return null
 	},
