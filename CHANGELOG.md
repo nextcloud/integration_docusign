@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [4.0.0] - 2025-12-18
+
+### Changed
+
+* Bumped min-version to Nextcloud 33
+* Multiple dependency updates with breaking changes
+
+### Fixed
+
+* Clarify source code license
+
 ## [3.0.0] - 2025-12-04
 
 Major version update due to Nextcloud 28 incompatibility from previous release.
@@ -83,7 +94,8 @@ Major version update due to Nextcloud 28 incompatibility from previous release.
 
 * Ability to request signature via DocuSign for all PDF files
 
-[Unreleased]: https://github.com/nextcloud/integration_docusign/compare/v3.0.0...HEAD
+[Unreleased]: https://github.com/nextcloud/integration_docusign/compare/v4.0.0...HEAD
+[4.0.0]: https://github.com/nextcloud/integration_docusign/compare/v3.0.0...v4.0.0
 [3.0.0]: https://github.com/nextcloud/integration_docusign/compare/v2.0.6...v3.0.0
 [2.0.6]: https://github.com/nextcloud/integration_docusign/compare/v2.0.5...v2.0.6
 [2.0.5]: https://github.com/nextcloud/integration_docusign/compare/v2.0.4...v2.0.5
