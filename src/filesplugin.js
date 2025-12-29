@@ -11,14 +11,17 @@
 import DocuSignModal from './components/DocuSignModal.vue'
 
 import axios from '@nextcloud/axios'
-import { generateUrl } from '@nextcloud/router'
+import { generateUrl, linkTo } from '@nextcloud/router'
+import { getCSPNonce } from '@nextcloud/auth'
 
-import Vue from 'vue'
-import './bootstrap.js'
+import { createApp } from 'vue'
 import {
 	registerFileAction, Permission, FileAction, FileType,
 } from '@nextcloud/files'
 import DocuSignIcon from '../img/app-dark.svg'
+
+__webpack_nonce__ = getCSPNonce() // eslint-disable-line
+__webpack_public_path__ = linkTo('integration_docusign', 'js/') // eslint-disable-line
 
 if (!OCA.DocuSign) {
 	/**
@@ -47,8 +50,8 @@ const requestSignatureAction = new FileAction({
 	},
 	iconSvgInline: () => DocuSignIcon,
 	async exec({ nodes }) {
-		OCA.DocuSign.DocuSignModalVue.$children[0].setFileId(nodes[0].fileid)
-		OCA.DocuSign.DocuSignModalVue.$children[0].showModal()
+		OCA.DocuSign.DocuSignModalVue.setFileId(nodes[0].fileid)
+		OCA.DocuSign.DocuSignModalVue.showModal()
 		return null
 	},
 })
@@ -60,12 +63,9 @@ const modalElement = document.createElement('div')
 modalElement.id = modalId
 document.body.append(modalElement)
 
-OCA.DocuSign.DocuSignModalVue = new Vue({
-	el: modalElement,
-	render: h => {
-		return h(DocuSignModal)
-	},
-})
+const app = createApp(DocuSignModal)
+app.mixin({ methods: { t, n } })
+OCA.DocuSign.DocuSignModalVue = app.mount(modalElement)
 
 // is DocuSign configured?
 const urlDs = generateUrl('/apps/integration_docusign/docusign/info')
