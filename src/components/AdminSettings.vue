@@ -229,7 +229,8 @@ export default {
 				.then(() => {
 				})
 		},
-		onLogoutClick() {
+		async onLogoutClick() {
+			await confirmPassword()
 			this.state.docusign_token = ''
 			this.saveOptions({
 				docusign_token: this.state.docusign_token,
