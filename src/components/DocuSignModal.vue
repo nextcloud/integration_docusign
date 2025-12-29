@@ -35,7 +35,7 @@
 						@click="closeRequestModal">
 						{{ t('integration_docusign', 'Cancel') }}
 					</NcButton>
-					<NcButton type="primary"
+					<NcButton variant="primary"
 						:disabled="!canValidate"
 						@click="onSignClick">
 						{{ t('integration_docusign', 'Request signature') }}
