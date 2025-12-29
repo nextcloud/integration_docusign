@@ -4,73 +4,90 @@
 			<DocusignIcon />
 			{{ t('integration_docusign', 'DocuSign integration') }}
 		</h2>
-		<p class="settings-hint">
-			{{ t('integration_docusign', 'DocuSign is an electronic signature solution.') }}
-			<a href="https://www.docusign.com/" class="external" target="_blank">
-				https://www.docusign.com
-				<span class="icon icon-external" />
-			</a>
-		</p>
-		<p v-if="!connected"
-			class="settings-hint">
-			<br>
-			{{ t('integration_docusign', 'If you want to use DocuSign, create an application in your DocuSign "My Apps & Keys" developer account settings and put the client ID (integration key) and secret below.') }}
-			<br>
-			{{ t('integration_docusign', 'Make sure you set this "Redirect URI":') }}
-			<b> {{ redirect_uri }} </b>
-			<br>
-			{{ t('integration_docusign', 'If your DocuSign user is associated with multiple DocuSign accounts, the default one will be used.') }}
-		</p>
-		<div v-if="!connected"
-			class="form">
-			<label for="docusign-client-id">
-				{{ t('integration_docusign', 'Client ID (aka integration key)') }}
-			</label>
-			<input id="docusign-client-id"
-				v-model="state.docusign_client_id"
-				type="password"
-				:readonly="readonly"
-				:placeholder="t('integration_docusign', 'Client ID of your application')"
-				@focus="readonly = false"
-				@input="onFieldInput">
-			<label for="docusign-client-secret">
-				{{ t('integration_docusign', 'Application secret key') }}
-			</label>
-			<input id="docusign-client-secret"
-				v-model="state.docusign_client_secret"
-				type="password"
-				:readonly="readonly"
-				:placeholder="t('integration_docusign', 'Secret key of your application')"
-				@focus="readonly = false"
-				@input="onFieldInput">
-		</div>
-		<NcButton v-if="oAuthConfigured && !connected"
-			id="docusign-oauth-connect"
-			:disabled="loading === true"
-			:class="{ loading }"
-			@click="onOAuthClick">
-			{{ t('integration_docusign', 'Connect to DocuSign') }}
-		</NcButton>
-		<div v-if="connected">
-			<p class="docusign-connected">
-				<a class="icon icon-checkmark-color" />
-				{{ t('integration_docusign', 'Connected as {user} ({email})', { user: state.docusign_user_name, email: state.docusign_user_email }) }}
-			</p>
-			<NcButton class="docusign-rm-cred" @click="onLogoutClick">
+		<div class="docusign-content">
+			<NcNoteCard type="info">
+				{{ t('integration_docusign', 'DocuSign is an electronic signature solution.') }}
+				<a href="https://www.docusign.com/" class="external" target="_blank">
+					https://www.docusign.com
+					<OpenInNewIcon :size="20" />
+				</a>
+			</NcNoteCard>
+			<NcNoteCard v-if="!connected" type="info">
+				{{ t('integration_docusign', 'If you want to use DocuSign, create an application in your DocuSign "My Apps & Keys" developer account settings and put the client ID (integration key) and secret below.') }}
+				<br>
+				{{ t('integration_docusign', 'Make sure you set this "Redirect URI":') }}
+				<br>
+				<strong>{{ redirect_uri }}</strong>
+				<br>
+				{{ t('integration_docusign', 'If your DocuSign user is associated with multiple DocuSign accounts, the default one will be used.') }}
+			</NcNoteCard>
+			<div v-if="!connected"
+				class="form">
+				<NcTextField
+					v-model="state.docusign_client_id"
+					type="password"
+					:label="t('integration_docusign', 'Client ID (aka integration key)')"
+					:placeholder="t('integration_docusign', 'Client ID of your application')"
+					:show-trailing-button="!!state.docusign_client_id"
+					:readonly="readonly"
+					@focus="readonly = false"
+					@update:model-value="onFieldInput"
+					@trailing-button-click="state.docusign_client_id = ''; onFieldInput()">
+					<template #icon>
+						<KeyIcon :size="20" />
+					</template>
+				</NcTextField>
+				<NcTextField
+					v-model="state.docusign_client_secret"
+					type="password"
+					:label="t('integration_docusign', 'Application secret key')"
+					:placeholder="t('integration_docusign', 'Secret key of your application')"
+					:show-trailing-button="!!state.docusign_client_secret"
+					:readonly="readonly"
+					@focus="readonly = false"
+					@update:model-value="onFieldInput"
+					@trailing-button-click="state.docusign_client_secret = ''; onFieldInput()">
+					<template #icon>
+						<KeyIcon :size="20" />
+					</template>
+				</NcTextField>
+			</div>
+			<NcButton v-if="oAuthConfigured && !connected"
+				id="docusign-oauth-connect"
+				:disabled="loading === true"
+				:class="{ loading }"
+				@click="onOAuthClick">
+				{{ t('integration_docusign', 'Connect to DocuSign') }}
 				<template #icon>
-					<CloseIcon :size="20" />
+					<OpenInNewIcon :size="20" />
 				</template>
-				{{ t('integration_docusign', 'Disconnect from DocuSign') }}
 			</NcButton>
+			<div v-if="connected">
+				<p class="line">
+					<CheckIcon :size="20" />
+					{{ t('integration_docusign', 'Connected as {user} ({email})', { user: state.docusign_user_name, email: state.docusign_user_email }) }}
+				</p>
+				<NcButton class="docusign-rm-cred" @click="onLogoutClick">
+					<template #icon>
+						<CloseIcon :size="20" />
+					</template>
+					{{ t('integration_docusign', 'Disconnect from DocuSign') }}
+				</NcButton>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+import CheckIcon from 'vue-material-design-icons/Check.vue'
 import CloseIcon from 'vue-material-design-icons/Close.vue'
+import OpenInNewIcon from 'vue-material-design-icons/OpenInNew.vue'
+import KeyIcon from 'vue-material-design-icons/Key.vue'
 import DocusignIcon from './icons/DocusignIcon.vue'
 
 import NcButton from '@nextcloud/vue/components/NcButton'
+import NcNoteCard from '@nextcloud/vue/components/NcNoteCard'
+import NcTextField from '@nextcloud/vue/components/NcTextField'
 
 import { loadState } from '@nextcloud/initial-state'
 import { generateUrl } from '@nextcloud/router'
@@ -85,7 +102,12 @@ export default {
 	components: {
 		DocusignIcon,
 		NcButton,
+		NcNoteCard,
+		NcTextField,
 		CloseIcon,
+		OpenInNewIcon,
+		CheckIcon,
+		KeyIcon,
 	},
 
 	props: [],
@@ -219,55 +241,36 @@ export default {
 
 <style scoped lang="scss">
 #docusign_prefs {
-	.docusign-rm-cred {
-		height: 44px;
-		min-height: 44px;
-		margin-top: 12px;
-	}
-
-	p .icon {
-		margin-bottom: -3px;
-	}
-
-	.icon {
-		display: inline-block;
-		width: 32px;
-	}
-
 	.section-title {
 		display: flex;
 		gap: 12px;
+		justify-content: start;
 	}
 
-	.settings-hint .icon {
-		width: 16px;
-	}
-
-	button .icon {
-		margin: 0 !important;
-	}
-
-	.icon-docusign {
-		background-image: url('../../img/app-dark.svg');
-		background-size: 23px 23px;
-		height: 23px;
-		margin-bottom: -4px;
-	}
-
-	.form {
+	.docusign-content {
+		margin-left: 40px;
 		display: flex;
 		flex-direction: column;
-		label {
-			line-height: 32px;
+		gap: 4px;
+		max-width: 800px;
+
+		a.external {
+			display: flex;
+			align-items: center;
+			gap: 4px;
 		}
-		input {
-			width: 250px;
+
+		.line {
+			display: flex;
+			align-items: center;
+			gap: 4px;
+		}
+
+		.form {
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
 		}
 	}
 }
-
-body.theme--dark .icon-docusign {
-	background-image: url('../../img/app.svg');
-}
-
 </style>
