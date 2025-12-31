@@ -35,7 +35,7 @@
 						@click="closeRequestModal">
 						{{ t('integration_docusign', 'Cancel') }}
 					</NcButton>
-					<NcButton type="primary"
+					<NcButton variant="primary"
 						:disabled="!canValidate"
 						@click="onSignClick">
 						{{ t('integration_docusign', 'Request signature') }}
@@ -50,10 +50,10 @@
 </template>
 
 <script>
-import NcModal from '@nextcloud/vue/dist/Components/NcModal.js'
-import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
-import NcLoadingIcon from '@nextcloud/vue/dist/Components/NcLoadingIcon.js'
-import NcEmptyContent from '@nextcloud/vue/dist/Components/NcEmptyContent.js'
+import NcModal from '@nextcloud/vue/components/NcModal'
+import NcButton from '@nextcloud/vue/components/NcButton'
+import NcLoadingIcon from '@nextcloud/vue/components/NcLoadingIcon'
+import NcEmptyContent from '@nextcloud/vue/components/NcEmptyContent'
 
 import MultiselectWho from './MultiselectWho.vue'
 import DocusignIcon from './icons/DocusignIcon.vue'
@@ -169,7 +169,7 @@ export default {
 		display: flex;
 		justify-content: center;
 		.modal-title-text {
-			margin-left: 8px;
+			margin-inline-start: 8px;
 		}
 	}
 }

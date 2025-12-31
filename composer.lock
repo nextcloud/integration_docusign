@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7626873334cf82989f633ea28a685311",
+    "content-hash": "fe06400042c36a70cd58eeef61de895e",
     "packages": [
         {
             "name": "bamarni/composer-bin-plugin",
@@ -168,12 +168,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextcloud-deps/ocp.git",
-                "reference": "be97344a46d9a19169e20c10ab4f7b0a2b769df7"
+                "reference": "f8c70c8d28000510f865028e24bb5cfe562f8b77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nextcloud-deps/ocp/zipball/be97344a46d9a19169e20c10ab4f7b0a2b769df7",
-                "reference": "be97344a46d9a19169e20c10ab4f7b0a2b769df7",
+                "url": "https://api.github.com/repos/nextcloud-deps/ocp/zipball/f8c70c8d28000510f865028e24bb5cfe562f8b77",
+                "reference": "f8c70c8d28000510f865028e24bb5cfe562f8b77",
                 "shasum": ""
             },
             "require": {
@@ -204,20 +204,20 @@
                 "issues": "https://github.com/nextcloud-deps/ocp/issues",
                 "source": "https://github.com/nextcloud-deps/ocp/tree/stable29"
             },
-            "time": "2025-05-15T00:50:47+00:00"
+            "time": "2025-11-30T00:58:59+00:00"
         },
         {
             "name": "php-cs-fixer/shim",
-            "version": "v3.89.2",
+            "version": "v3.92.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/shim.git",
-                "reference": "8f1bf4fd7d8270020cd3c58756fcf3615ed14b68"
+                "reference": "85907503d29473dfbb2f5950c84f5c00cb1b7297"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/shim/zipball/8f1bf4fd7d8270020cd3c58756fcf3615ed14b68",
-                "reference": "8f1bf4fd7d8270020cd3c58756fcf3615ed14b68",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/shim/zipball/85907503d29473dfbb2f5950c84f5c00cb1b7297",
+                "reference": "85907503d29473dfbb2f5950c84f5c00cb1b7297",
                 "shasum": ""
             },
             "require": {
@@ -254,9 +254,9 @@
             "description": "A tool to automatically fix PHP code style",
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/shim/issues",
-                "source": "https://github.com/PHP-CS-Fixer/shim/tree/v3.89.2"
+                "source": "https://github.com/PHP-CS-Fixer/shim/tree/v3.92.3"
             },
-            "time": "2025-11-06T21:13:10+00:00"
+            "time": "2025-12-18T10:45:25+00:00"
         },
         {
             "name": "psr/clock",
@@ -468,11 +468,11 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.0 || ^8.1 || ^8.2 || ^8.3 || ^8.4"
+        "php": "^8.2 || ^8.3 || ^8.4"
     },
     "platform-dev": {},
     "platform-overrides": {
-        "php": "8.0"
+        "php": "8.2"
     },
     "plugin-api-version": "2.6.0"
 }
