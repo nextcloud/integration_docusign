@@ -31,8 +31,10 @@
 					:text="option.displayName"
 					:search="query"
 					class="multiselect-name" />
-				<span v-if="option.icon"
-					:class="{ icon: true, [option.icon]: true, 'multiselect-icon': true }" />
+				<component
+					:is="option.icon"
+					v-if="option.icon"
+					:size="20" />
 			</div>
 		</template>
 		<template #no-options>
@@ -42,6 +44,11 @@
 </template>
 
 <script>
+import AccountMultipleOutlineIcon from 'vue-material-design-icons/AccountMultipleOutline.vue'
+import AccountGroupOutlineIcon from 'vue-material-design-icons/AccountGroupOutline.vue'
+import AccountOutlineIcon from 'vue-material-design-icons/AccountOutline.vue'
+import EmailOutlineIcon from 'vue-material-design-icons/EmailOutline.vue'
+
 import { getCurrentUser } from '@nextcloud/auth'
 import { generateOcsUrl } from '@nextcloud/router'
 import { showError } from '@nextcloud/dialogs'
@@ -112,7 +119,7 @@ export default {
 					entityId: s.id,
 					type: 'user',
 					displayName: s.label,
-					icon: 'icon-user',
+					icon: AccountOutlineIcon,
 					trackKey: 'user-' + s.id,
 				}
 			})
@@ -127,7 +134,7 @@ export default {
 					type: 'email',
 					displayName: cleanQuery,
 					email: cleanQuery,
-					icon: 'icon-mail',
+					icon: EmailOutlineIcon,
 					trackKey: 'email-' + cleanQuery,
 				})
 			}
@@ -143,7 +150,7 @@ export default {
 						entityId: this.currentUser.uid,
 						type: 'user',
 						displayName: this.currentUser.displayName,
-						icon: 'icon-user',
+						icon: AccountOutlineIcon,
 						trackKey: 'user-' + this.currentUser.uid,
 					})
 				}
@@ -157,7 +164,7 @@ export default {
 					entityId: s.id,
 					type: 'group',
 					displayName: s.label,
-					icon: 'icon-group',
+					icon: AccountMultipleOutlineIcon,
 					trackKey: 'group-' + s.id,
 				}
 			})
@@ -171,7 +178,7 @@ export default {
 					entityId: s.id,
 					type: 'circle',
 					displayName: s.label,
-					icon: 'icon-circle',
+					icon: AccountGroupOutlineIcon,
 					trackKey: 'circle-' + s.id,
 				}
 			})
@@ -184,7 +191,7 @@ export default {
 						entityId: w.entityId,
 						type: 'user',
 						displayName: w.displayName,
-						icon: 'icon-user',
+						icon: AccountOutlineIcon,
 						trackKey: 'user-' + w.entityId,
 					}
 					: w.type === 'group'
@@ -192,7 +199,7 @@ export default {
 							entityId: w.entityId,
 							type: 'group',
 							displayName: w.displayName,
-							icon: 'icon-group',
+							icon: AccountMultipleOutlineIcon,
 							trackKey: 'group-' + w.entityId,
 						}
 						: w.type === 'circle'
@@ -200,14 +207,14 @@ export default {
 								entityId: w.entityId,
 								type: 'circle',
 								displayName: w.displayName,
-								icon: 'icon-circle',
+								icon: AccountGroupOutlineIcon,
 								trackKey: 'circle-' + w.entityId,
 							}
 							: {
 								type: 'email',
 								displayName: w.displayName,
 								email: w.email,
-								icon: 'icon-mail',
+								icon: EmailOutlineIcon,
 								trackKey: 'email-' + w.email,
 							}
 			}))
@@ -262,15 +269,6 @@ export default {
 		margin-left: 10px;
 		overflow: hidden;
 		text-overflow: ellipsis;
-	}
-	.multiselect-icon {
-		opacity: 0.5;
-	}
-	.icon-circle {
-		background-image: var(--icon-contacts-circles-000);
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-		background-position: center;
 	}
 }
 </style>
