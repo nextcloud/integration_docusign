@@ -266,7 +266,7 @@ export default {
 
 	.multiselect-name {
 		flex-grow: 1;
-		margin-left: 10px;
+		margin-inline-start: 10px;
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}

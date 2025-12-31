@@ -249,7 +249,7 @@ export default {
 	}
 
 	.docusign-content {
-		margin-left: 40px;
+		margin-inline-start: 40px;
 		display: flex;
 		flex-direction: column;
 		gap: 4px;

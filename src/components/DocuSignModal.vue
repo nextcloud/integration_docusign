@@ -169,7 +169,7 @@ export default {
 		display: flex;
 		justify-content: center;
 		.modal-title-text {
-			margin-left: 8px;
+			margin-inline-start: 8px;
 		}
 	}
 }
