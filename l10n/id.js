@@ -8,6 +8,8 @@ OC.L10N.register(
     "OAuth access token refused" : "Token akses OAuth ditolak",
     "Connected accounts" : "Akun terhubung",
     "Cancel" : "Batal",
+    "Who?" : "Siapa?",
+    "Impossible to get user/group/circle list" : "Tidak dapat memperoleh daftar pengguna/grup/lingkaran",
     "No recommendations. Start typing." : "Tidak ada saran. Mulai mengetik."
 },
 "nplurals=1; plural=0;");
