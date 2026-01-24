@@ -7,6 +7,7 @@ OC.L10N.register(
     "Bad credentials" : "Kredensial tidak benar",
     "OAuth access token refused" : "Token akses OAuth ditolak",
     "Connected accounts" : "Akun terhubung",
+    "Connected as {user} ({email})" : "Terhubung sebagai {user} ({email})",
     "Cancel" : "Batal",
     "Who?" : "Siapa?",
     "Impossible to get user/group/circle list" : "Tidak dapat memperoleh daftar pengguna/grup/lingkaran",
