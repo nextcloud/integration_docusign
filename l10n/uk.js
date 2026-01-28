@@ -9,7 +9,7 @@ OC.L10N.register(
     "OAuth access token refused" : "Токен доступу OAuth відхилено",
     "Connected accounts" : "Підключені облікові записи",
     "DocuSign integration" : "Інтеграція DocuSign",
-    "Let users sign files via DocuSign" : "Дозвольте користувачам підписувати файли за допомогою DocuSign",
+    "Let users sign files via DocuSign" : "Дозволити користувачам підписувати файли з використанням DocuSign",
     "Sign files via DocuSign Service." : "Підписуйте файли через сервіс DocuSign.",
     "Successfully connected to DocuSign!" : "Успішно підключено до DocuSign!",
     "OAuth access token could not be obtained:" : "Не вдалося отримати токен доступу OAuth:",
