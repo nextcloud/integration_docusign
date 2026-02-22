@@ -1,0 +1,10 @@
+OC.L10N.register(
+    "integration_docusign",
+    {
+    "Bad HTTP method" : "Буруу HTTP арга",
+    "Bad credentials" : "Буруу нэвтрэх мэдээлэл",
+    "Cancel" : "Цуцлах",
+    "Who?" : "Хэн?",
+    "No recommendations. Start typing." : "Санал байхгүй. Бичиж эхлээрэй."
+},
+"nplurals=2; plural=(n != 1);");
