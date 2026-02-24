@@ -16,7 +16,7 @@ import { getCSPNonce } from '@nextcloud/auth'
 
 import { createApp } from 'vue'
 import {
-	registerFileAction, Permission, FileAction, FileType,
+	registerFileAction, Permission, FileType,
 } from '@nextcloud/files'
 import DocuSignIcon from '../img/app-dark.svg'
 
@@ -36,7 +36,7 @@ if (!OCA.DocuSign) {
 	}
 }
 
-const requestSignatureAction = new FileAction({
+const requestSignatureAction = {
 	id: 'docusign-sign',
 	displayName: () => {
 		return t('integration_docusign', 'Request signature with DocuSign')
@@ -54,7 +54,7 @@ const requestSignatureAction = new FileAction({
 		OCA.DocuSign.DocuSignModalVue.showModal()
 		return null
 	},
-})
+}
 registerFileAction(requestSignatureAction)
 
 // signature modal
