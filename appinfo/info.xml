@@ -17,6 +17,7 @@
 		<developer>https://github.com/nextcloud/integration_docusign</developer>
 	</documentation>
 	<category>files</category>
+	<category>integration</category>
 	<category>workflow</category>
 	<website>https://github.com/nextcloud/integration_docusign</website>
 	<bugs>https://github.com/nextcloud/integration_docusign/issues</bugs>
