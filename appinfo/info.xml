@@ -6,6 +6,7 @@
 	<description><![CDATA[Sign files via DocuSign Service.]]></description>
 	<version>4.1.0</version>
 	<licence>AGPL-3.0-or-later</licence>
+	<author mail="contact@edward.ly" homepage="https://edward.ly/">Edward Ly</author>
 	<author>Florian Klinger</author>
 	<namespace>DocuSign</namespace>
 	<types>
