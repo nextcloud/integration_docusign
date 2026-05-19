@@ -16,6 +16,7 @@ OC.L10N.register(
     "Nextcloud users or email addresses" : "Nextcloud naudotojai ar el. pašto adresai",
     "DocuSign workflow" : "„DocuSign“ darbo eiga",
     "Cancel" : "Atsisakyti",
+    "Request signature" : "Prašyti parašo",
     "Who?" : "Kas?",
     "Users or groups" : "Naudotojai ar grupės",
     "Impossible to get user/group/circle list" : "Nepavyksta gauti vartotojų, grupių ar ratų sąrašo",
