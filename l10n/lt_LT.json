@@ -7,6 +7,7 @@
     "Connected accounts" : "Prijungtos paskyros",
     "DocuSign integration" : "„DocuSign“ integracija",
     "Successfully connected to DocuSign!" : "Sėkmingai prisijungta prie „DocuSign“!",
+    "OAuth access token could not be obtained:" : "Nepavyko gauti „OAuth“ prieigos rakto:",
     "DocuSign is an electronic signature solution." : "„DocuSign“ yra elektroninio parašo sprendimas.",
     "Connected as {user} ({email})" : "Prisijungta kaip {user} ({email})",
     "Disconnect from DocuSign" : "Atsijungti nuo „DocuSign“",
