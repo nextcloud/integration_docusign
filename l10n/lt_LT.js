@@ -19,7 +19,7 @@ OC.L10N.register(
     "Cancel" : "Atsisakyti",
     "Request signature" : "Prašyti parašo",
     "Who?" : "Kas?",
-    "Users or groups" : "Naudotojai ar grupės",
+    "Users or groups" : "Vartotojai ar grupės",
     "Impossible to get user/group/circle list" : "Nepavyksta gauti vartotojų, grupių ar ratų sąrašo",
     "No recommendations. Start typing." : "Rekomendacijų nėra. Pradėkite rašyti."
 },
