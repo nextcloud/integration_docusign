@@ -7,10 +7,13 @@
     "OAuth access token refused" : "نشانه دسترسی OAuth رد شد",
     "Connected accounts" : "حساب‌های متصل",
     "DocuSign integration" : "DocuSign integration",
+    "Let users sign files via DocuSign" : "اجازه دهید کاربران فایل‌ها را از طریق DocuSign امضا کنند",
+    "Sign files via DocuSign Service." : "امضای فایل‌ها از طریق سرویس DocuSign.",
     "Successfully connected to DocuSign!" : "Successfully connected to DocuSign!",
     "OAuth access token could not be obtained:" : "نشانه دسترسی OAuth بدست نیامد:",
     "DocuSign admin options saved" : "DocuSign admin options saved",
     "Failed to save DocuSign admin options" : "Failed to save DocuSign admin options",
+    "For security reasons, please enter your client credentials again" : "به دلایل امنیتی، لطفاً credentials کلاینت خود را دوباره وارد کنید",
     "Failed to save DocuSign OAuth state" : "Failed to save DocuSign OAuth state",
     "DocuSign is an electronic signature solution." : "DocuSign is an electronic signature solution.",
     "If you want to use DocuSign, create an application in your DocuSign \"My Apps & Keys\" developer account settings and put the client ID (integration key) and secret below." : "If you want to use DocuSign, create an application in your DocuSign \"My Apps & Keys\" developer account settings and put the client ID (integration key) and secret below.",
@@ -28,11 +31,14 @@
     "Request a signature via DocuSign" : "Request a signature via DocuSign",
     "Users or email addresses" : "Users or email addresses",
     "Nextcloud users or email addresses" : "Nextcloud users or email addresses",
+    "DocuSign workflow" : "گردش‌کار DocuSign",
     "Recipients will receive an email from DocuSign with a link to sign the document. You will be informed by email when the document has been signed by all recipients." : "Recipients will receive an email from DocuSign with a link to sign the document. You will be informed by email when the document has been signed by all recipients.",
     "Cancel" : "منصرف شدن",
     "Request signature" : "Request signature",
     "Who?" : "Who?",
+    "Users or groups" : "کاربران یا گروه‌ها",
     "Impossible to get user/group/circle list" : "Impossible to get user/group/circle list",
-    "No recommendations. Start typing." : "هیچ توصیه‌ای وجود ندارد. شروع به نوشتن کنید."
+    "No recommendations. Start typing." : "هیچ توصیه‌ای وجود ندارد. شروع به نوشتن کنید.",
+    "Request signature with DocuSign" : "درخواست امضا با DocuSign"
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }
