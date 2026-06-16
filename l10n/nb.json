@@ -10,7 +10,7 @@
     "Successfully connected to DocuSign!" : "Tilkoblingen til DocuSign er vellykket!",
     "OAuth access token could not be obtained:" : "OAuth access token kunne ikke innhentes:",
     "DocuSign admin options saved" : "DocuSign admin-innstillinger ble lagret",
-    "Failed to save DocuSign admin options" : "Kunne ikke lagre DocuSign admin-instillingene",
+    "Failed to save DocuSign admin options" : "Mislyktes i å lagre DocuSign-admininnstillingene",
     "Failed to save DocuSign OAuth state" : "Kunne ikke lagre tilstanden til DocuSign OAuth",
     "DocuSign is an electronic signature solution." : "DocuSign er en elektronisk signaturløsning.",
     "If you want to use DocuSign, create an application in your DocuSign \"My Apps & Keys\" developer account settings and put the client ID (integration key) and secret below." : "Hvis du vil bruke DocuSign, opprett en ny applikasjon i din DocuSign-utviklerkonto under \"My Apps & Keys\"-innstillingene, og legg inn klient-ID (integrasjonsnøkkel) og hemmeligheten under.",
