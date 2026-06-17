@@ -8,6 +8,7 @@
     "DocuSign integration" : "„DocuSign“ integracija",
     "Successfully connected to DocuSign!" : "Sėkmingai prisijungta prie „DocuSign“!",
     "OAuth access token could not be obtained:" : "Nepavyko gauti „OAuth“ prieigos rakto:",
+    "For security reasons, please enter your client credentials again" : "Saugumo sumetimais prašome dar kartą įvesti savo kliento prisijungimo duomenis",
     "DocuSign is an electronic signature solution." : "„DocuSign“ yra elektroninio parašo sprendimas.",
     "Connected as {user} ({email})" : "Prisijungta kaip {user} ({email})",
     "Disconnect from DocuSign" : "Atsijungti nuo „DocuSign“",
