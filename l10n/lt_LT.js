@@ -1,15 +1,15 @@
 OC.L10N.register(
     "integration_docusign",
     {
-    "Error getting OAuth access token" : "Klaida gaunant „OAuth“ prieigos raktą",
+    "Error getting OAuth access token" : "Klaida gaunant „OAuth“ prieigos žymenį",
     "Error during OAuth exchanges" : "Klaida „OAuth“ apsikeitimo metu",
     "Bad HTTP method" : "Blogas HTTP metodas",
     "Bad credentials" : "Blogi prisijungimo duomenys",
-    "OAuth access token refused" : "„OAuth“ prieigos raktas atmestas",
+    "OAuth access token refused" : "„OAuth“ prieigos žymuo atmestas",
     "Connected accounts" : "Prijungtos paskyros",
     "DocuSign integration" : "„DocuSign“ integracija",
     "Successfully connected to DocuSign!" : "Sėkmingai prisijungta prie „DocuSign“!",
-    "OAuth access token could not be obtained:" : "Nepavyko gauti „OAuth“ prieigos rakto:",
+    "OAuth access token could not be obtained:" : "Nepavyko gauti „OAuth“ prieigos žymens:",
     "For security reasons, please enter your client credentials again" : "Saugumo sumetimais prašome dar kartą įvesti savo kliento prisijungimo duomenis",
     "DocuSign is an electronic signature solution." : "„DocuSign“ yra elektroninio parašo sprendimas.",
     "Connected as {user} ({email})" : "Prisijungta kaip {user} ({email})",
