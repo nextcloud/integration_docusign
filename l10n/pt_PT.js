@@ -4,6 +4,8 @@ OC.L10N.register(
     "Error during OAuth exchanges" : "Erro durante trocas com o OAuth",
     "Bad HTTP method" : "Método HTTP incorreto",
     "Bad credentials" : "Credenciais inválidas",
+    "OAuth access token refused" : "Token de acesso OAuth recusado",
+    "Connected accounts" : "Contas conectadas",
     "Cancel" : "Cancelar",
     "No recommendations. Start typing." : "Nenhuma recomendação. Comece a escrever "
 },
