@@ -1,12 +1,15 @@
 OC.L10N.register(
     "integration_docusign",
     {
+    "Error getting OAuth access token" : "Erro ao obter o token de acesso OAuth",
     "Error during OAuth exchanges" : "Erro durante trocas com o OAuth",
     "Bad HTTP method" : "Método HTTP incorreto",
     "Bad credentials" : "Credenciais inválidas",
     "OAuth access token refused" : "Token de acesso OAuth recusado",
     "Connected accounts" : "Contas conectadas",
+    "DocuSign admin options saved" : "Opções de administração do DocuSign salvas",
     "Cancel" : "Cancelar",
+    "Users or groups" : "Usuários ou grupos",
     "No recommendations. Start typing." : "Nenhuma recomendação. Comece a escrever "
 },
 "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
