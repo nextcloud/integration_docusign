@@ -7,9 +7,21 @@ OC.L10N.register(
     "Bad credentials" : "Credenciais inválidas",
     "OAuth access token refused" : "Token de acesso OAuth recusado",
     "Connected accounts" : "Contas conectadas",
+    "Let users sign files via DocuSign" : "Permita que os usuários assinem arquivos via DocuSign",
+    "OAuth access token could not be obtained:" : "Não foi possível obter o token de acesso OAuth:",
     "DocuSign admin options saved" : "Opções de administração do DocuSign salvas",
+    "DocuSign is an electronic signature solution." : "DocuSign é uma solução de assinatura eletrônica.",
+    "Make sure you set this \"Redirect URI\":" : "Certifique-se de definir este \"URI de Redirecionamento\":",
+    "Client ID of your application" : "ID de cliente do seu aplicativo",
+    "Connected as {user} ({email})" : "Conectado como {user} ({email})",
+    "Failed to request signature with DocuSign" : "Falha ao solicitar assinatura com DocuSign",
+    "Nextcloud users or email addresses" : "Usuários do Nextcloud ou endereços de e-mail",
     "Cancel" : "Cancelar",
+    "Request signature" : "Solicitar assinatura",
+    "Who?" : "Quem?",
     "Users or groups" : "Usuários ou grupos",
-    "No recommendations. Start typing." : "Nenhuma recomendação. Comece a escrever "
+    "Impossible to get user/group/circle list" : "Impossível obter lista de usuários/grupos/círculos",
+    "No recommendations. Start typing." : "Nenhuma recomendação. Comece a escrever ",
+    "Request signature with DocuSign" : "Solicitar uma assinatura com DocuSign"
 },
 "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
