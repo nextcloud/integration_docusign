@@ -8,6 +8,7 @@
     "Connected accounts" : "Contas conectadas",
     "DocuSign integration" : "Integração DocuSign",
     "Let users sign files via DocuSign" : "Permita que os usuários assinem arquivos via DocuSign",
+    "Sign files via DocuSign Service." : "Assine arquivos por meio do serviço DocuSign.",
     "Successfully connected to DocuSign!" : "Conectado com sucesso ao DocuSign!",
     "OAuth access token could not be obtained:" : "Não foi possível obter o token de acesso OAuth:",
     "DocuSign admin options saved" : "Opções de administração do DocuSign salvas",
