@@ -32,7 +32,7 @@ OC.L10N.register(
     "Failed to request signature with DocuSign" : "Nepavyko pateikti parašo užklausos naudojant „DocuSign“",
     "Request a signature via DocuSign" : "Paprašyti pasirašyti naudojantis „DocuSign“",
     "Users or email addresses" : "Naudotojai ar el. pašto adresai",
-    "Nextcloud users or email addresses" : "Nextcloud naudotojai ar el. pašto adresai",
+    "Nextcloud users or email addresses" : "„Nextcloud“ vartotojai ar el. pašto adresai",
     "DocuSign workflow" : "„DocuSign“ darbo eiga",
     "Recipients will receive an email from DocuSign with a link to sign the document. You will be informed by email when the document has been signed by all recipients." : "Gavėjai gaus „DocuSign“ el. laišką su nuoroda dokumentui pasirašyti. Būsite informuoti el. paštu, kai dokumentą pasirašys visi gavėjai.",
     "Cancel" : "Atsisakyti",
