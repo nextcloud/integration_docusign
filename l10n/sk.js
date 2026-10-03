@@ -2,7 +2,7 @@ OC.L10N.register(
     "integration_docusign",
     {
     "Error getting OAuth access token" : "Chyba pri získavaní prístupového tokenu OAuth",
-    "Error during OAuth exchanges" : "Chyba počas výmeny OAuth",
+    "Error during OAuth exchanges" : "Chyba počas výmen OAuth",
     "Signature of %s" : "Podpis pre %s",
     "Bad HTTP method" : "Zlá metóda HTTP",
     "Bad credentials" : "Nesprávne prihlasovacie údaje",
