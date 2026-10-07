@@ -33,7 +33,7 @@ OC.L10N.register(
     "Request a signature via DocuSign" : "Vyžiadať podpis cez DocuSign",
     "Users or email addresses" : "Používatelia alebo e-mailové adresy",
     "Nextcloud users or email addresses" : "Používatelia Nextcloudu alebo emailové adresy",
-    "DocuSign workflow" : "Proces práce v DocuSign",
+    "DocuSign workflow" : "Pracovný postup DocuSign",
     "Recipients will receive an email from DocuSign with a link to sign the document. You will be informed by email when the document has been signed by all recipients." : "Príjemcovia dostanú od DocuSign e-mail s odkazom na podpísanie dokumentu. O podpísaní dokumentu všetkými príjemcami budete informovaní e -mailom.",
     "Cancel" : "Zrušiť",
     "Request signature" : "Vyžiadať podpis",
