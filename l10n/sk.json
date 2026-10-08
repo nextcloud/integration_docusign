@@ -18,7 +18,7 @@
     "DocuSign is an electronic signature solution." : "DocuSign je riešenie pre elektronický podpis.",
     "If you want to use DocuSign, create an application in your DocuSign \"My Apps & Keys\" developer account settings and put the client ID (integration key) and secret below." : "Ak chcete používať DocuSign, vytvorte si v nastavení účtu vývojára DocuSign „Moje aplikácie a kľúče“ aplikáciu a nižšie zadajte ID klienta (integračný kľúč) a tajný kód.",
     "Make sure you set this \"Redirect URI\":" : "Nezabudnite nastaviť tento \"Redirect URI\":",
-    "If your DocuSign user is associated with multiple DocuSign accounts, the default one will be used." : "Ak je váš DocuSign užívateľ priradený s viacerými DocuSign účtami, musí byť použitý predvolený účet.",
+    "If your DocuSign user is associated with multiple DocuSign accounts, the default one will be used." : "Ak je váš používateľ DocuSign priradený k viacerým účtom DocuSign, použije sa predvolený účet.",
     "Client ID (aka integration key)" : "ID klienta (integračný kľúč)",
     "Client ID of your application" : "ID klienta vašej aplikácie",
     "Application secret key" : "Aplikačný tajný kľúč",
