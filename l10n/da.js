@@ -39,7 +39,7 @@ OC.L10N.register(
     "Request signature" : "Anmod om underskrift",
     "Who?" : "Hvem?",
     "Users or groups" : "Brugere af grupper",
-    "Impossible to get user/group/circle list" : "Umuligt at hente bruger/gruppe/cirkel liste",
+    "Impossible to get user/group/circle list" : "Listen over brugere/grupper/teams kunne ikke hentes",
     "No recommendations. Start typing." : "Ingen anbefalinger. Begynd at skrive.",
     "Request signature with DocuSign" : "Anmod om underskrift med DocuSign"
 },
