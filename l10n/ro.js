@@ -7,7 +7,10 @@ OC.L10N.register(
     "Bad credentials" : "Credențiale greșite",
     "OAuth access token refused" : "Token-ul OAuth a fost refuzat",
     "Connected accounts" : "Conturile conectate",
+    "Connected as {user} ({email})" : "Conectat ca {user} ({email})",
     "Cancel" : "Anulare",
+    "Who?" : "Cine?",
+    "Impossible to get user/group/circle list" : "Lista de utilizatori/grupuri/cercuri nu a putut fi obținută",
     "No recommendations. Start typing." : "Nu am găsit recomandări. Începeți să scrieți."
 },
 "nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));");
